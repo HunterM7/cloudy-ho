@@ -1,0 +1,38 @@
+//? === Button ===
+
+@import 'styles/_vars';
+
+.button {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	height: 48px;
+	max-width: max-content;
+	padding-inline: 16px;
+
+	line-height: 48px;
+	color: $on-primary;
+
+	border-radius: $radius-pill;
+	background-color: $primary;
+
+	&:disabled {
+		color: $on-surface-variant;
+
+		cursor: not-allowed;
+		background-color: $outline;
+
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.startIcon {
+	font-size: 2.4rem !important;
+}
+
+.text {
+	font-weight: $weight-semiBold;
+}
