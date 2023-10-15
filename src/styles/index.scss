@@ -110,6 +110,31 @@ body {
 	}
 }
 
+.card {
+	color: $on-surface;
+
+	background-color: $surface;
+}
+
+.card-sm {
+	padding: 16px;
+
+	border-radius: $radius-16;
+}
+
+.card-lg {
+	padding: 20px;
+
+	border-radius: $radius-28;
+}
+
+.heading {
+	font-size: $heading;
+	line-height: 1.1;
+
+	color: $white;
+}
+
 // .btn-primary {
 // 	line-height: 48px;
 // 	color: $on-primary;
