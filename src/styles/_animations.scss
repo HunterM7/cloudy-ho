@@ -6,3 +6,12 @@
 		clip-path: circle(100% at 50% 50%);
 	}
 }
+
+@keyframes loading {
+	0% {
+		transform: translate(-50%) rotate(0);
+	}
+	100% {
+		transform: translate(-50%) rotate(1turn);
+	}
+}

@@ -1,23 +1,40 @@
 import { ButtonHTMLAttributes, FC } from 'react'
-import styles from './Button.module.scss'
+import { SvgIconComponent } from '@mui/icons-material'
+import cn from 'classnames'
 
 // Styles
-import { SvgIconComponent } from '@mui/icons-material'
+import styles from './Button.module.scss'
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  primary?: true
+  hasState?: true
   StartIcon?: SvgIconComponent
+  extraClasses?: string[]
 }
 
-export const Button: FC<IButtonProps> = ({ StartIcon, children, ...rest }) => {
+export const Button: FC<IButtonProps> = ({
+  primary = false,
+  hasState = false,
+  StartIcon,
+  extraClasses = [],
+  children,
+  ...rest
+}) => {
   return (
     <button
       data-current-location-btn
-      className={`has-state ${styles.button}`}
+      className={cn(
+        styles.button,
+        primary && styles.primary,
+        hasState && styles.hasState,
+        !children && styles.withoutText,
+        ...extraClasses,
+      )}
       {...rest}
     >
       {StartIcon && <StartIcon className={styles.startIcon} />}
 
-      <span className={styles.text}>{children}</span>
+      {children && <span className={styles.text}>{children}</span>}
     </button>
   )
 }

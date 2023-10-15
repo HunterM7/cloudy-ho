@@ -1,6 +1,8 @@
 //? === Button ===
 
 @import 'styles/_vars';
+@import 'styles/_animations';
+@import 'styles/_mixins';
 
 .button {
 	display: flex;
@@ -9,13 +11,23 @@
 
 	height: 48px;
 	max-width: max-content;
-	padding-inline: 16px;
+	padding: 16px;
 
 	line-height: 48px;
-	color: $on-primary;
+	color: $white;
 
 	border-radius: $radius-pill;
-	background-color: $primary;
+	background-color: $white-alpha-8;
+
+	&.primary {
+		color: $on-primary;
+
+		background-color: $primary;
+	}
+
+	&.withoutText {
+		padding: 16px 12px;
+	}
 
 	&:disabled {
 		color: $on-surface-variant;
@@ -27,6 +39,10 @@
 			display: none;
 		}
 	}
+}
+
+.hasState {
+	@include hasState;
 }
 
 .startIcon {

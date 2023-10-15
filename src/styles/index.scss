@@ -2,6 +2,7 @@
 @import './animations';
 @import './fonts';
 @import './_vars';
+@import './mixins';
 
 html {
 	font-family: $ff-nunito-sans, sans-serif;
@@ -109,33 +110,33 @@ body {
 	}
 }
 
-.btn-primary {
-	line-height: 48px;
-	color: $on-primary;
+// .btn-primary {
+// 	line-height: 48px;
+// 	color: $on-primary;
 
-	height: 48px;
-	max-width: max-content;
-	padding-inline: 16px;
+// 	height: 48px;
+// 	max-width: max-content;
+// 	padding-inline: 16px;
 
-	display: flex;
-	align-items: center;
-	gap: 16px;
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 16px;
 
-	border-radius: $radius-pill;
-	background-color: $primary;
+// 	border-radius: $radius-pill;
+// 	background-color: $primary;
 
-	& .span {
-		font-weight: $weight-semiBold;
-	}
+// 	& .span {
+// 		font-weight: $weight-semiBold;
+// 	}
 
-	&:disabled {
-		color: $on-surface-variant;
+// 	&:disabled {
+// 		color: $on-surface-variant;
 
-		background-color: $outline;
-		cursor: not-allowed;
+// 		background-color: $outline;
+// 		cursor: not-allowed;
 
-		&::before {
-			display: none;
-		}
-	}
-}
+// 		&::before {
+// 			display: none;
+// 		}
+// 	}
+// }

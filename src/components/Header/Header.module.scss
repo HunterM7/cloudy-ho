@@ -1,7 +1,18 @@
-.search {
-	display: none;
+//? === Header ===
+
+@import 'styles/_vars';
+
+.header {
 }
 
-.current_location_btn .span {
-	display: none;
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	gap: 16px;
 }

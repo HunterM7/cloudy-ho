@@ -1,0 +1,29 @@
+@mixin hasState {
+	position: relative;
+
+	&:hover {
+		box-shadow: $shadow-1;
+
+		&::before {
+			background-color: $white-alpha-4;
+		}
+	}
+
+	&:is(:focus, :focus-visible) {
+		box-shadow: none;
+
+		&::before {
+			background-color: $white-alpha-8;
+			animation: ripple 250ms ease forwards;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		clip-path: circle(100% at 50% 50%);
+		transition: $transition-short;
+	}
+}
