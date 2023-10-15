@@ -1,11 +1,14 @@
 //? === Header ===
 
 @import 'styles/_vars';
+@import 'styles/_mixins';
 
 .header {
 }
 
 .container {
+	@include container;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

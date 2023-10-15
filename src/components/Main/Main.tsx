@@ -1,21 +1,26 @@
-import { Icon01d } from 'assets/images'
 import { FC } from 'react'
+
+// Assets
+import { Icon01d } from 'assets/images'
+
+// Styles
+import styles from './Main.module.scss'
 
 export const Main: FC = () => {
   return (
-    <main>
-      <article className="container">
+    <main className={styles.main}>
+      <article className={styles.container}>
         <div className="content-left">
           {/* Current weather */}
           <section
-            className="section currentWeather"
+            className={`currentWeather ${styles.section}`}
             aria-label="current weather"
             data-current-weather
           >
             <div className="card card-lg current-weather-card">
               <h2 className="title-2 card-title">Now</h2>
 
-              <div className="wrapper">
+              <div className={styles.wrapper}>
                 <p className="heading">
                   25&deg;<sup>c</sup>
                 </p>

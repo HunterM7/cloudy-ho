@@ -4,7 +4,6 @@ import {
   MyLocationRounded as MyLocationRoundedIcon,
   SearchRounded as SearchRoundedIcon,
 } from '@mui/icons-material'
-import cn from 'classnames'
 
 // Components 'n UI
 import { Button, Logo } from 'ui'
@@ -22,7 +21,7 @@ export const Header: FC = () => {
 
   return (
     <header className={styles.header}>
-      <div className={cn('container', styles.container)}>
+      <div className={styles.container}>
         <Link to="/" className={styles.logo}>
           <Logo />
         </Link>

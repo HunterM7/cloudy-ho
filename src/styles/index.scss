@@ -63,14 +63,6 @@ body {
 	overflow: hidden;
 }
 
-// Reused styles
-.container {
-	max-width: 1600px;
-	width: 100%;
-	margin: 0 auto;
-	padding: 16px;
-}
-
 .icon-btn {
 	background-color: $white-alpha-8;
 	width: 48px;
@@ -133,6 +125,42 @@ body {
 	line-height: 1.1;
 
 	color: $white;
+}
+
+.title-1 {
+	font-size: $title-1;
+}
+
+.title-2 {
+	font-size: $title-2;
+
+	margin-block-end: 12px;
+}
+
+.title-3 {
+	font-size: $title-3;
+	font-weight: $weight-semiBold;
+}
+
+.body-1 {
+	font-size: $body-1;
+}
+
+.body-2 {
+	font-size: $body-2;
+	font-weight: $weight-semiBold;
+}
+
+.body-3 {
+	font-size: $body-3;
+}
+
+.label-1 {
+	font-size: $label-1;
+}
+
+.label-2 {
+	font-size: $label-2;
 }
 
 // .btn-primary {
