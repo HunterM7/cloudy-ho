@@ -56,3 +56,13 @@
 		margin-block-end: 16px;
 	}
 }
+
+.currentWeather {
+}
+
+.forecast {
+}
+
+.forecastHeading {
+	@include title-2;
+}

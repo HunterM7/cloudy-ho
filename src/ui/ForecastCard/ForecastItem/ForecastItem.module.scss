@@ -1,0 +1,45 @@
+//? === ForecastItem ===
+
+@import 'styles/_mixins';
+
+.item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.leftSide {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	width: 36px;
+	height: 36px;
+
+	object-fit: contain;
+	object-position: center;
+}
+
+.info {
+}
+
+.temperature {
+	@include title-2;
+
+	margin-block-end: 0;
+}
+
+.date {
+	@include label-1;
+
+	font-weight: $weight-semiBold;
+	color: $on-surface-variant;
+}
+
+.weekDay {
+	@include label-1;
+
+	font-weight: $weight-semiBold;
+	color: $on-surface-variant;
+}
