@@ -1,4 +1,8 @@
 import { FC } from 'react'
+import {
+  CalendarTodayOutlined as CalendarTodayOutlinedIcon,
+  FmdGoodOutlined as FmdGoodOutlinedIcon,
+} from '@mui/icons-material'
 
 // Types 'n utils
 import { WeatherConditions } from 'utils'
@@ -33,19 +37,19 @@ export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
         />
       </div>
 
-      <p className="body-3">Overcast clouds</p>
+      <p className={styles.overcast}>Overcast clouds</p>
 
-      <ul className="meta-list">
-        <li className="meta-item">
-          <span className="m-icon">calendar_today</span>
+      <ul className={styles.meta}>
+        <li className={styles.meta__item}>
+          <CalendarTodayOutlinedIcon sx={{ fontSize: '2.2rem' }} />
 
-          <p className="title-3 meta-text">Thursday 16, Feb</p>
+          <p className={styles.meta__text}>Thursday 16, Feb</p>
         </li>
 
-        <li className="meta-item">
-          <span className="m-icon">location_on</span>
+        <li className={styles.meta__item}>
+          <FmdGoodOutlinedIcon sx={{ fontSize: '2.4rem' }} />
 
-          <p className="title-3 meta-text">London, GB</p>
+          <p className={styles.meta__text}>London, GB</p>
         </li>
       </ul>
     </div>

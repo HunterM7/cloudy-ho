@@ -27,3 +27,31 @@
 		margin-inline: auto;
 	}
 }
+
+.overcast {
+	@include body-3;
+
+	text-transform: capitalize;
+}
+
+.meta {
+	margin-block-start: 16px;
+	padding-block-start: 16px;
+	border-block-start: 1px solid $outline;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&:not(:last-child) {
+			margin-block-end: 12px;
+		}
+	}
+
+	&__text {
+		@include title-3;
+
+		color: $on-surface-variant;
+	}
+}
