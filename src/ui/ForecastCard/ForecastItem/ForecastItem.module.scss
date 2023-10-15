@@ -2,26 +2,24 @@
 
 @import 'styles/_mixins';
 
-.item {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.row {
 }
 
-.leftSide {
+.condition {
 	display: flex;
 	align-items: center;
-}
+	gap: 8px;
 
-.icon {
-	width: 36px;
-	height: 36px;
+	&__icon {
+		width: 36px;
+		height: 36px;
 
-	object-fit: contain;
-	object-position: center;
-}
+		object-fit: contain;
+		object-position: center;
+	}
 
-.info {
+	&__info {
+	}
 }
 
 .temperature {
@@ -35,6 +33,7 @@
 
 	font-weight: $weight-semiBold;
 	color: $on-surface-variant;
+	text-align: right;
 }
 
 .weekDay {
@@ -42,4 +41,5 @@
 
 	font-weight: $weight-semiBold;
 	color: $on-surface-variant;
+	text-align: right;
 }

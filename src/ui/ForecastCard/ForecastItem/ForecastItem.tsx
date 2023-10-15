@@ -16,23 +16,31 @@ export const ForecastItem: FC<IForecastItemProps> = ({
   temperature,
 }) => {
   return (
-    <li className={styles.item}>
-      <div className={styles.leftSide}>
-        <img
-          className={styles.icon}
-          src={WeatherConditions[condition].image.day}
-          alt="Overcast Clouds"
-        />
+    <tr className={styles.row}>
+      <td>
+        <div className={styles.condition}>
+          <img
+            className={styles.condition__icon}
+            src={WeatherConditions[condition].image.day}
+            alt="Overcast Clouds"
+          />
 
-        <div className={styles.info}>
-          <p className={styles.temperature}>{temperature}</p>
+          <div className={styles.condition__info}>
+            <p className={styles.temperature}>
+              {temperature}&deg;<sup>c</sup>
+            </p>
+          </div>
         </div>
-      </div>
+      </td>
 
-      <p className={styles.date}>17 Feb</p>
+      <td>
+        <p className={styles.date}>17 Feb</p>
+      </td>
 
-      <p className={styles.weekDay}>Friday</p>
-    </li>
+      <td>
+        <p className={styles.weekDay}>Friday</p>
+      </td>
+    </tr>
   )
 }
 
