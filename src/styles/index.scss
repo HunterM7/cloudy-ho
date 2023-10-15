@@ -102,67 +102,6 @@ body {
 	}
 }
 
-.card {
-	color: $on-surface;
-
-	background-color: $surface;
-}
-
-.card-sm {
-	padding: 16px;
-
-	border-radius: $radius-16;
-}
-
-.card-lg {
-	padding: 20px;
-
-	border-radius: $radius-28;
-}
-
-.heading {
-	font-size: $heading;
-	line-height: 1.1;
-
-	color: $white;
-}
-
-.title-1 {
-	font-size: $title-1;
-}
-
-.title-2 {
-	font-size: $title-2;
-
-	margin-block-end: 12px;
-}
-
-.title-3 {
-	font-size: $title-3;
-	font-weight: $weight-semiBold;
-}
-
-.body-1 {
-	font-size: $body-1;
-}
-
-.body-2 {
-	font-size: $body-2;
-	font-weight: $weight-semiBold;
-}
-
-.body-3 {
-	font-size: $body-3;
-}
-
-.label-1 {
-	font-size: $label-1;
-}
-
-.label-2 {
-	font-size: $label-2;
-}
-
 // .btn-primary {
 // 	line-height: 48px;
 // 	color: $on-primary;

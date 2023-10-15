@@ -59,9 +59,7 @@ export const SearchBar: FC = () => {
             <div>
               <p className={styles.list__title}>London</p>
 
-              <p className={`label-2 ${styles.list__subtitle}`}>
-                State of London, GB
-              </p>
+              <p className={styles.list__subtitle}>State of London, GB</p>
             </div>
 
             <a

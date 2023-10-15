@@ -1,0 +1,29 @@
+//? === CurrentWeatherCard ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.card {
+	@include card;
+	@include card-lg;
+}
+
+.title {
+	@include title-2;
+}
+
+.weather {
+	margin-block: 12px;
+
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	&__heading {
+		@include heading;
+	}
+
+	&__icon {
+		margin-inline: auto;
+	}
+}

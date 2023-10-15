@@ -108,6 +108,7 @@
 	}
 
 	&__subtitle {
+		@include label-2;
 		color: $on-surface-variant;
 	}
 

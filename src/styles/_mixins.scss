@@ -1,3 +1,5 @@
+@import './vars';
+
 @mixin hasState {
 	position: relative;
 
@@ -33,4 +35,68 @@
 	width: 100%;
 	margin: 0 auto;
 	padding: 16px;
+}
+
+// Card
+@mixin card() {
+	color: $on-surface;
+
+	background-color: $surface;
+}
+
+@mixin card-sm {
+	padding: 16px;
+
+	border-radius: $radius-16;
+}
+
+@mixin card-lg {
+	padding: 20px;
+
+	border-radius: $radius-28;
+}
+
+// Typography
+
+@mixin heading {
+	font-size: $heading;
+	line-height: 1.1;
+
+	color: $white;
+}
+
+@mixin title-1 {
+	font-size: $title-1;
+}
+
+@mixin title-2 {
+	font-size: $title-2;
+
+	margin-block-end: 12px;
+}
+
+@mixin title-3 {
+	font-size: $title-3;
+	font-weight: $weight-semiBold;
+}
+
+@mixin body-1 {
+	font-size: $body-1;
+}
+
+@mixin body-2 {
+	font-size: $body-2;
+	font-weight: $weight-semiBold;
+}
+
+@mixin body-3 {
+	font-size: $body-3;
+}
+
+@mixin label-1 {
+	font-size: $label-1;
+}
+
+@mixin label-2 {
+	font-size: $label-2;
 }
