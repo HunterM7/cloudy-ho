@@ -1,8 +1,10 @@
 import { FC } from 'react'
 
+// Components 'n UI
+import { AirCard, RiseAndSetCard } from 'ui'
+
 // Styles
 import styles from './HighlightsCard.module.scss'
-import { AirCard } from '../AirCard/AirCard'
 
 export const HighlightsCard: FC = () => {
   return (
@@ -13,6 +15,7 @@ export const HighlightsCard: FC = () => {
 
       <div className={styles.list}>
         <AirCard />
+        <RiseAndSetCard />
       </div>
     </div>
   )

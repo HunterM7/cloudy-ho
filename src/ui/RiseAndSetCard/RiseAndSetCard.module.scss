@@ -1,4 +1,4 @@
-//? === AirCard ===
+//? === RiseAndSetCard ===
 
 @import 'styles/_vars';
 @import 'styles/_mixins';
@@ -13,9 +13,14 @@
 	@include title-3;
 }
 
-.data {
-	&__list {
-	}
+.list {
 	&__item {
+	}
+
+	&__title {
+		@include label-1;
+	}
+	&__value {
+		@include title-1;
 	}
 }

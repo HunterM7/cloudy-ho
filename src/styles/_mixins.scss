@@ -56,6 +56,10 @@
 	border-radius: $radius-28;
 }
 
+@mixin highlight-card {
+	background-color: $black-alpha-10;
+}
+
 // Typography
 
 @mixin heading {
