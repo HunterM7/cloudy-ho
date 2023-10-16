@@ -1,0 +1,35 @@
+//? === InfoCard ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.card {
+	@include card;
+	@include card-sm;
+	@include highlight-card;
+
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas: 'heading heading' 'icon value';
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.heading {
+	@include title-3;
+
+	grid-area: heading;
+}
+
+.icon {
+	font-size: 3.6rem !important;
+
+	grid-area: icon;
+}
+
+.value {
+	@include title-1;
+
+	grid-area: value;
+}
