@@ -1,15 +1,23 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import {
   LightModeRounded as LightModeRoundedIcon,
   DarkModeRounded as DarkModeRoundedIcon,
 } from '@mui/icons-material'
+import cn from 'classnames'
 
 // Styles
 import styles from './RiseAndSetCard.module.scss'
 
-export const RiseAndSetCard: FC = () => {
+export interface RiseAndSetCardProps extends HTMLAttributes<HTMLDivElement> {
+  //
+}
+
+export const RiseAndSetCard: FC<RiseAndSetCardProps> = ({
+  className,
+  ...rest
+}) => {
   return (
-    <div className={styles.card}>
+    <div className={cn(styles.card, className)} {...rest}>
       <h3 className={styles.heading}>Sunrise & Sunset</h3>
 
       <div className={styles.sunrise}>

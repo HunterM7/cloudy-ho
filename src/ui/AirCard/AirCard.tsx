@@ -1,5 +1,6 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { AirRounded as AirRoundedIcon } from '@mui/icons-material'
+import cn from 'classnames'
 
 // Components 'n UI
 import { Badge } from 'ui'
@@ -10,7 +11,11 @@ import { AirCardInfo, IAirCardInfoProps } from './AirCardInfo/AirCardInfo'
 // Styles
 import styles from './AirCard.module.scss'
 
-export const AirCard: FC = () => {
+export interface AirCardProps extends HTMLAttributes<HTMLDivElement> {
+  //
+}
+
+export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
   const airData: IAirCardInfoProps[] = [
     {
       heading: (
@@ -47,7 +52,7 @@ export const AirCard: FC = () => {
   ]
 
   return (
-    <div className={styles.card}>
+    <div className={cn(styles.card, className)} {...rest}>
       <h3 className={styles.heading}>Air Quality Index</h3>
 
       <Badge

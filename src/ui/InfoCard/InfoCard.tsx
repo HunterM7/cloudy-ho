@@ -1,10 +1,11 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
+import cn from 'classnames'
 import { SvgIconComponent } from '@mui/icons-material'
 
 // Styles
 import styles from './InfoCard.module.scss'
 
-export interface InfoCardProps {
+export interface InfoCardProps extends HTMLAttributes<HTMLDivElement> {
   heading: string
   Icon: SvgIconComponent
   value: number | string
@@ -19,9 +20,11 @@ export const InfoCard: FC<InfoCardProps> = ({
   Icon,
   value,
   units: { unit, position = 'down' },
+  className,
+  ...rest
 }) => {
   return (
-    <div className={styles.card}>
+    <div className={cn(styles.card, className)} {...rest}>
       <h3 className={styles.heading}>{heading}</h3>
 
       <Icon className={styles.icon} />

@@ -6,6 +6,7 @@
 .badge {
 	@include label-1;
 	font-weight: $weight-semiBold;
+	line-height: normal;
 
 	padding: 2px 12px;
 

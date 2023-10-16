@@ -20,8 +20,9 @@ export const HighlightsCard: FC = () => {
       </h2>
 
       <div className={styles.list}>
-        <AirCard />
-        <RiseAndSetCard />
+        <AirCard className={styles.aqi} />
+
+        <RiseAndSetCard className={styles.sun} />
 
         {/* Humidity */}
         <InfoCard
@@ -29,6 +30,7 @@ export const HighlightsCard: FC = () => {
           value={35}
           Icon={WaterDropRoundedIcon}
           units={{ unit: '%' }}
+          className={styles.humidity}
         />
 
         {/* Pressure */}
@@ -37,6 +39,7 @@ export const HighlightsCard: FC = () => {
           value={1019}
           Icon={WaterRoundedIcon}
           units={{ unit: 'hPa' }}
+          className={styles.pressure}
         />
 
         {/* Visibility */}
@@ -45,6 +48,7 @@ export const HighlightsCard: FC = () => {
           value={10}
           Icon={VisibilityOutlinedIcon}
           units={{ unit: 'km' }}
+          className={styles.visibility}
         />
 
         {/* Feels Like */}
@@ -53,6 +57,7 @@ export const HighlightsCard: FC = () => {
           value={`${25}°`}
           Icon={ThermostatRoundedIcon}
           units={{ unit: 'c', position: 'up' }}
+          className={styles.feelslike}
         />
       </div>
     </div>

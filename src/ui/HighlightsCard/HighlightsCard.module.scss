@@ -10,4 +10,56 @@
 
 .heading {
 	@include title-2;
+
+	margin-bottom: 12px;
+}
+
+.list {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas: 'aqi' 'sun' 'humidity' 'pressure' 'visibility' 'feelslike';
+	gap: 16px;
+
+	@media (min-width: $bp-md) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas:
+			'aqi					aqi'
+			'sun					sun'
+			'humidity			pressure'
+			'visibility		feelslike';
+		gap: 20px;
+	}
+
+	@media (min-width: $bp-xxl) {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-areas:
+			'aqi				aqi				aqi					aqi'
+			'sun				sun				sun					sun'
+			'humidity		pressure	visibility	feelslike';
+
+		padding: 32px;
+	}
+}
+
+.aqi {
+	grid-area: aqi;
+}
+
+.sun {
+	grid-area: sun;
+}
+
+.humidity {
+	grid-area: humidity;
+}
+.pressure {
+	grid-area: pressure;
+}
+
+.visibility {
+	grid-area: visibility;
+}
+
+.feelslike {
+	grid-area: feelslike;
 }
