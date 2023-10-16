@@ -3,6 +3,7 @@ import {
   WaterDropRounded as WaterDropRoundedIcon,
   WaterRounded as WaterRoundedIcon,
   VisibilityOutlined as VisibilityOutlinedIcon,
+  ThermostatRounded as ThermostatRoundedIcon,
 } from '@mui/icons-material'
 
 // Components 'n UI
@@ -50,7 +51,7 @@ export const HighlightsCard: FC = () => {
         <InfoCard
           heading="Feels Like"
           value={`${25}°`}
-          Icon={VisibilityOutlinedIcon}
+          Icon={ThermostatRoundedIcon}
           units={{ unit: 'c', position: 'up' }}
         />
       </div>

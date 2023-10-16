@@ -56,12 +56,19 @@
 	border-radius: $radius-28;
 }
 
+@mixin card-xl {
+	padding: 24px;
+
+	border-radius: $radius-28;
+}
+
 @mixin highlight-card {
 	background-color: $black-alpha-10;
 }
 
-// Typography
+/* Typography */
 
+// Desktop
 @mixin heading {
 	font-size: $heading;
 	line-height: 1.1;
@@ -75,8 +82,6 @@
 
 @mixin title-2 {
 	font-size: $title-2;
-
-	margin-block-end: 12px;
 }
 
 @mixin title-3 {
@@ -103,4 +108,19 @@
 
 @mixin label-2 {
 	font-size: $label-2;
+}
+
+// Mobile
+
+@mixin m-heading {
+	font-size: $m-heading;
+}
+
+@mixin m-title-1 {
+	font-size: $m-title-1;
+}
+
+@mixin m-title-2 {
+	font-size: $m-title-2;
+	font-weight: $weight-semiBold;
 }

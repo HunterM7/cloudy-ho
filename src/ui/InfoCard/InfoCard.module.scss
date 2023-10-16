@@ -13,7 +13,19 @@
 	grid-template-areas: 'heading heading' 'icon value';
 	align-items: center;
 	justify-content: space-between;
-	gap: 20px 16px;
+	row-gap: 20px;
+
+	@media (min-width: $bp-md) {
+		padding: 20px;
+
+		row-gap: 16px;
+	}
+
+	@media (min-width: $bp-xl) {
+		padding: 24px;
+
+		row-gap: 24px;
+	}
 }
 
 .heading {
@@ -25,13 +37,30 @@
 }
 
 .icon {
-	font-size: 3.6rem !important;
+	font-size: 3.2rem !important;
 
 	grid-area: icon;
+
+	@media (min-width: $bp-md) {
+		font-size: 3.6rem !important;
+	}
+
+	@media (min-width: $bp-xl) {
+		font-size: 4.8rem !important;
+	}
 }
 
 .value {
-	@include title-1;
+	@include m-title-1;
+	color: $on-surface-variant-2;
 
 	grid-area: value;
+
+	@media (min-width: $bp-md) {
+		@include body-1;
+	}
+
+	@media (min-width: $bp-xl) {
+		@include title-1;
+	}
 }

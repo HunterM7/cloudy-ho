@@ -12,19 +12,17 @@ export const RiseAndSetCard: FC = () => {
     <div className={styles.card}>
       <h3 className={styles.heading}>Sunrise & Sunset</h3>
 
-      <ul className={styles.list}>
-        <li className={styles.list__item}>
-          <LightModeRoundedIcon sx={{ fontSize: '4.8rem' }} />
-          <p className={styles.list__title}>Sunrise</p>
-          <p className={styles.list__value}>6:30 AM</p>
-        </li>
+      <div className={styles.sunrise}>
+        <LightModeRoundedIcon sx={{ fontSize: '4.8rem' }} />
+        <p className={styles.title}>Sunrise</p>
+        <p className={styles.value}>6:30 AM</p>
+      </div>
 
-        <li className={styles.list__item}>
-          <DarkModeRoundedIcon sx={{ fontSize: '4.8rem' }} />
-          <p className={styles.list__title}>Sunset</p>
-          <p className={styles.list__value}>5:54 PM</p>
-        </li>
-      </ul>
+      <div className={styles.sunset}>
+        <DarkModeRoundedIcon sx={{ fontSize: '4.8rem' }} />
+        <p className={styles.title}>Sunset</p>
+        <p className={styles.value}>5:54 PM</p>
+      </div>
     </div>
   )
 }

@@ -7,20 +7,30 @@
 	@include card;
 	@include card-sm;
 	@include highlight-card;
+
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-template-areas: 'heading heading' 'sunrise sunset';
+	gap: 8px 16px;
 }
 
 .heading {
 	@include title-3;
+	color: $on-surface-variant;
+
+	grid-area: heading;
 }
 
-.list {
-	&__item {
-	}
+.sunrise {
+	grid-area: sunrise;
+}
+.sunset {
+	grid-area: sunset;
+}
 
-	&__title {
-		@include label-1;
-	}
-	&__value {
-		@include title-1;
-	}
+.title {
+	@include label-1;
+}
+.value {
+	@include title-1;
 }
