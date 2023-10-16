@@ -24,6 +24,10 @@
 	overflow-y: auto; // For Firefox
 	overflow-y: overlay;
 
+	@media (min-width: $bp-md) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
 	&::-webkit-scrollbar-thumb {
 		background-color: transparent;
 	}
@@ -53,7 +57,7 @@
 
 .section {
 	&:not(:last-child) {
-		margin-block-end: 16px;
+		// margin-block-end: 16px;
 	}
 }
 

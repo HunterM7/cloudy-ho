@@ -27,10 +27,20 @@
 }
 
 .data {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 16px;
 	grid-area: data;
 
-	&__list {
+	&__icon {
+		font-size: 3.2rem !important;
 	}
-	&__item {
+
+	&__list {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
 	}
 }

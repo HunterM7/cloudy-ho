@@ -43,7 +43,7 @@ export const SearchBar: FC = () => {
           aria-label="close search"
           data-search-toggler
           StartIcon={ArrowBackRoundedIcon}
-          extraClasses={[styles.leadingIcon]}
+          className={styles.leadingIcon}
           onClick={() => console.log('arrow click')}
         />
       </div>

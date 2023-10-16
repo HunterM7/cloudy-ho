@@ -9,14 +9,13 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   primary?: true
   hasState?: true
   StartIcon?: SvgIconComponent
-  extraClasses?: string[]
 }
 
 export const Button: FC<IButtonProps> = ({
   primary = false,
   hasState = false,
   StartIcon,
-  extraClasses = [],
+  className,
   children,
   ...rest
 }) => {
@@ -28,7 +27,7 @@ export const Button: FC<IButtonProps> = ({
         primary && styles.primary,
         hasState && styles.hasState,
         !children && styles.withoutText,
-        ...extraClasses,
+        className,
       )}
       {...rest}
     >

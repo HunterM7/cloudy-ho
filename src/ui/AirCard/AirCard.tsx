@@ -62,11 +62,11 @@ export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
       />
 
       <div className={styles.data}>
-        <AirRoundedIcon sx={{ fontSize: '4.8rem' }} />
+        <AirRoundedIcon className={styles.data__icon} />
 
         <ul className={styles.data__list}>
-          {airData.map((props) => (
-            <AirCardInfo component="li" {...props} />
+          {airData.map((props, index) => (
+            <AirCardInfo key={index} component="li" {...props} />
           ))}
         </ul>
       </div>

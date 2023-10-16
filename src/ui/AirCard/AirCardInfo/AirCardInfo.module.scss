@@ -5,9 +5,11 @@
 
 .wrapper {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row-reverse;
 	align-items: center;
-	gap: 8px;
+	gap: 4px;
+
+	justify-content: end;
 }
 
 .heading {
@@ -16,5 +18,5 @@
 }
 
 .value {
-	@include title-1;
+	@include m-title-1;
 }
