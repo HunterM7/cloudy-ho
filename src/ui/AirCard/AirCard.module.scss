@@ -33,14 +33,33 @@
 	column-gap: 16px;
 	grid-area: data;
 
+	@media (min-width: $bp-md) {
+		column-gap: 24px;
+	}
+
 	&__icon {
 		font-size: 3.2rem !important;
+
+		@media (min-width: $bp-md) {
+			font-size: 3.6rem !important;
+		}
+
+		@media (min-width: $bp-xl) {
+			font-size: 4.8rem !important;
+		}
 	}
 
 	&__list {
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+
+		@media (min-width: $bp-md) {
+			display: flex;
+			// justify-content: space-between;
+			align-items: center;
+		}
+
 		gap: 8px;
 	}
 }

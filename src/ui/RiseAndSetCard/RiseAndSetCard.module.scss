@@ -30,6 +30,7 @@
 
 .title {
 	@include label-1;
+	color: $on-surface-variant;
 }
 .value {
 	@include title-1;
