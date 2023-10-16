@@ -7,13 +7,28 @@
 	@include card;
 	@include card-sm;
 	@include highlight-card;
+
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas: 'heading badge' 'data data';
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px 16px;
 }
 
 .heading {
 	@include title-3;
+
+	grid-area: heading;
+}
+
+.badge {
+	grid-area: badge;
 }
 
 .data {
+	grid-area: data;
+
 	&__list {
 	}
 	&__item {

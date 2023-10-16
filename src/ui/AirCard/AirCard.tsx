@@ -50,6 +50,12 @@ export const AirCard: FC = () => {
     <div className={styles.card}>
       <h3 className={styles.heading}>Air Quality Index</h3>
 
+      <Badge
+        type="good"
+        title="Air quality condition"
+        className={styles.badge}
+      />
+
       <div className={styles.data}>
         <AirRoundedIcon sx={{ fontSize: '4.8rem' }} />
 
@@ -59,8 +65,6 @@ export const AirCard: FC = () => {
           ))}
         </ul>
       </div>
-
-      <Badge type="good" title="Air quality condition" />
     </div>
   )
 }

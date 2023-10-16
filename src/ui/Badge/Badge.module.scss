@@ -5,10 +5,12 @@
 
 .badge {
 	@include label-1;
+	font-weight: $weight-semiBold;
 
 	padding: 2px 12px;
 
-	border-radius: 100px;
+	border-radius: $radius-pill;
+	cursor: help;
 }
 
 .good {

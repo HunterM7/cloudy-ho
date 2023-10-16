@@ -13,11 +13,13 @@
 	grid-template-areas: 'heading heading' 'icon value';
 	align-items: center;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 20px 16px;
 }
 
 .heading {
 	@include title-3;
+
+	color: $on-surface-variant;
 
 	grid-area: heading;
 }
