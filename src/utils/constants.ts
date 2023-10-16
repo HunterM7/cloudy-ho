@@ -132,3 +132,11 @@ export const WeatherConditions = {
   //   },
   // },
 }
+
+export enum BadgeTypeEnum {
+  good = 'Good',
+  fair = 'Fair',
+  moderate = 'Moderate',
+  poor = 'Poor',
+  veryPoor = 'Very Poor',
+}

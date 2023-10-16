@@ -1,0 +1,20 @@
+//? === AirCardInfo ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+
+.heading {
+	@include label-1;
+	color: $on-surface-variant;
+}
+
+.value {
+	@include title-1;
+}

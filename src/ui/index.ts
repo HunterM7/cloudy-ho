@@ -1,4 +1,7 @@
+export * from './AirCard/AirCard'
+export * from './Badge/Badge'
 export * from './Button/Button'
 export * from './CurrentWeatherCard/CurrentWeatherCard'
 export * from './ForecastCard/ForecastCard'
+export * from './HighlightsCard/HighlightsCard'
 export * from './Logo/Logo'

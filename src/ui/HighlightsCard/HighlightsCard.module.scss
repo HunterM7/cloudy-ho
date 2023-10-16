@@ -1,0 +1,13 @@
+//? === HighlightsCard ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.card {
+	@include card;
+	@include card-lg;
+}
+
+.heading {
+	@include title-2;
+}

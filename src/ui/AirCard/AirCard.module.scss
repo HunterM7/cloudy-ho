@@ -1,0 +1,20 @@
+//? === AirCard ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.card {
+	@include card;
+	@include card-sm;
+}
+
+.heading {
+	@include title-3;
+}
+
+.data {
+	&__list {
+	}
+	&__item {
+	}
+}

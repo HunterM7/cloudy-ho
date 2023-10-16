@@ -1,0 +1,42 @@
+//? === Badge ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.badge {
+	@include label-1;
+
+	padding: 2px 12px;
+
+	border-radius: 100px;
+}
+
+.good {
+	color: $on-bg-aqi-1;
+
+	background-color: $bg-aqi-1;
+}
+
+.fair {
+	color: $on-bg-aqi-2;
+
+	background-color: $bg-aqi-2;
+}
+
+.moderate {
+	color: $on-bg-aqi-3;
+
+	background-color: $bg-aqi-3;
+}
+
+.poor {
+	color: $on-bg-aqi-4;
+
+	background-color: $bg-aqi-4;
+}
+
+.veryPoor {
+	color: $on-bg-aqi-5;
+
+	background-color: $bg-aqi-5;
+}
