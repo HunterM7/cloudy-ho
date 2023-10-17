@@ -5,15 +5,19 @@ import {
   SearchRounded as SearchRoundedIcon,
 } from '@mui/icons-material'
 
+// Types 'n utils
+import { useMediaQueries } from 'hooks'
+
 // Components 'n UI
 import { Button, Logo } from 'ui'
+import { SearchBar } from '../SearchBar/SearchBar'
 
 // Styles
 import styles from './Header.module.scss'
-import { SearchBar } from '../SearchBar/SearchBar'
 
 export const Header: FC = () => {
   const navigate = useNavigate()
+  const { sm } = useMediaQueries()
 
   function handleCurrentLocationClick() {
     navigate('current-location')
@@ -45,7 +49,7 @@ export const Header: FC = () => {
             StartIcon={MyLocationRoundedIcon}
             onClick={handleCurrentLocationClick}
           >
-            Current location
+            {sm && 'Current location'}
           </Button>
         </div>
       </div>

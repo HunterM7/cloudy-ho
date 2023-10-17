@@ -4,6 +4,7 @@
     "paths": {
       "assets/*": ["./assets/*", "./assets/"],
       "components/*": ["./components/*", "./components/"],
+      "hooks/*": ["./hooks/*", "./hooks/"],
       "styles/*": ["./styles/*", "./styles/"],
       "ui/*": ["./ui/*", "./ui/"],
       "utils/*": ["./utils/*", "./utils/"]
