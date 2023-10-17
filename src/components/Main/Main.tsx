@@ -2,11 +2,11 @@ import { FC } from 'react'
 import cn from 'classnames'
 
 // Components 'n UI
-import { CurrentWeatherCard, ForecastCard } from 'ui'
+import { CurrentWeatherCard, ForecastCard, HighlightsCard } from 'ui'
+import { HourlyForecast } from 'components'
 
 // Styles
 import styles from './Main.module.scss'
-import { HighlightsCard } from '../../ui/HighlightsCard/HighlightsCard'
 
 export const Main: FC = () => {
   return (
@@ -28,7 +28,7 @@ export const Main: FC = () => {
             aria-labelledby="forecast-label"
             data-5-day-forecast
           >
-            <h2 id="forecast-label" className={styles.forecastHeading}>
+            <h2 id="forecast-label" className={styles.forecast__heading}>
               5 Days Forecast
             </h2>
 
@@ -36,13 +36,25 @@ export const Main: FC = () => {
           </section>
         </div>
 
-        <div className="content-right">
+        <div className={styles.rightSection}>
           <section
             className={cn(styles.highlights, styles.section)}
             aria-labelledby="highlights-label"
             data-highlights
           >
             <HighlightsCard />
+          </section>
+
+          <section
+            className={styles.hourlyForecast}
+            aria-label="Hourly forecast"
+            data-hourly-forecast
+          >
+            <h2 id="forecast-label" className={styles.hourlyForecast__heading}>
+              Today at
+            </h2>
+
+            <HourlyForecast />
           </section>
         </div>
       </article>

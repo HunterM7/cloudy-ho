@@ -66,6 +66,9 @@
 }
 
 .rightSection {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .section {
@@ -75,13 +78,20 @@
 }
 
 .forecast {
-}
+	&__heading {
+		@include title-2;
 
-.forecastHeading {
-	@include title-2;
-
-	margin-bottom: 16px;
+		margin-bottom: 16px;
+	}
 }
 
 .highlights {
+}
+
+.hourlyForecast {
+	&__heading {
+		@include title-2;
+
+		margin-bottom: 16px;
+	}
 }

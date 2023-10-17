@@ -7,7 +7,7 @@ import { LogoIcon } from 'assets/images'
 import styles from './Logo.module.scss'
 
 export const Logo: FC = () => {
-  return <img className={styles.logo} src={LogoIcon} alt="Wheater App Logo" />
+  return <img className={styles.logo} src={LogoIcon} alt="Weather App Logo" />
 }
 
 export default Logo

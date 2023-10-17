@@ -1,4 +1,5 @@
 export * from './App/App'
 export * from './Header/Header'
+export * from './HourlyForecast/HourlyForecast'
 export * from './Main/Main'
 export * from './SearchBar/SearchBar'
