@@ -1,0 +1,28 @@
+//? === HourlyForecast ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+.slider {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	overflow-x: auto;
+	margin-inline: -16px;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&__list {
+		display: flex;
+		gap: 12px;
+
+		&::before,
+		&::after {
+			content: '';
+			min-width: 4px;
+		}
+	}
+}
