@@ -12,7 +12,7 @@ export const Main: FC = () => {
   return (
     <main className={styles.main}>
       <article className={styles.container}>
-        <div className="content-left">
+        <div className={styles.leftSection}>
           {/* Current weather */}
           <section
             className={cn(styles.currentWeather, styles.section)}

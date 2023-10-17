@@ -25,7 +25,11 @@
 	overflow-y: overlay;
 
 	@media (min-width: $bp-md) {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 280px 1fr;
+	}
+
+	@media (min-width: $bp-xl) {
+		grid-template-columns: 360px 1fr;
 	}
 
 	&::-webkit-scrollbar-thumb {
@@ -55,10 +59,16 @@
 	}
 }
 
+.leftSection {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.rightSection {
+}
+
 .section {
-	&:not(:last-child) {
-		// margin-block-end: 16px;
-	}
 }
 
 .currentWeather {
@@ -69,6 +79,8 @@
 
 .forecastHeading {
 	@include title-2;
+
+	margin-bottom: 16px;
 }
 
 .highlights {

@@ -43,26 +43,6 @@ body {
 	border-right: $radius-pill;
 }
 
-.m-icon {
-	font-family: 'Material Symbols Rounded';
-	font-size: 2.4rem;
-	font-weight: normal;
-	font-style: normal;
-	line-height: 1;
-	letter-spacing: normal;
-	text-transform: none;
-	white-space: nowrap;
-	word-wrap: normal;
-	direction: ltr;
-	font-feature-settings: 'liga';
-	-webkit-font-feature-settings: 'liga';
-	-webkit-font-smoothing: antialiased;
-
-	width: 1em;
-	height: 1em;
-	overflow: hidden;
-}
-
 .icon-btn {
 	background-color: $white-alpha-8;
 	width: 48px;

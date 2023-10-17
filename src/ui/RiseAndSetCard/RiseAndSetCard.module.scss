@@ -11,7 +11,15 @@
 	display: grid;
 	grid-template-columns: repeat(2, auto);
 	grid-template-areas: 'heading heading' 'sunrise sunset';
-	gap: 8px 16px;
+	gap: 20px 16px;
+
+	@media (min-width: $bp-md) {
+		padding: 20px;
+	}
+
+	@media (min-width: $bp-xl) {
+		padding: 24px;
+	}
 }
 
 .heading {
@@ -26,12 +34,4 @@
 }
 .sunset {
 	grid-area: sunset;
-}
-
-.title {
-	@include label-1;
-	color: $on-surface-variant;
-}
-.value {
-	@include title-1;
 }
