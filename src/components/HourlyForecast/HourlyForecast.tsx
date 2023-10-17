@@ -10,8 +10,8 @@ export const HourlyForecast: FC = () => {
   return (
     <div className={styles.slider}>
       <ul className={styles.slider__list} data-temp>
-        {[...new Array(10)].map(() => (
-          <li className={styles.slider__item}>
+        {[...new Array(10)].map((_el, index) => (
+          <li key={index} className={styles.slider__item}>
             <WeatherCard
               type="temperature"
               time="03 PM"
@@ -23,8 +23,8 @@ export const HourlyForecast: FC = () => {
       </ul>
 
       <ul className={styles.slider__list} data-wind>
-        {[...new Array(10)].map(() => (
-          <li className={styles.slider__item}>
+        {[...new Array(10)].map((_el, index) => (
+          <li key={index} className={styles.slider__item}>
             <WeatherCard type="wind" time="03 PM" direction="" speed={4} />
           </li>
         ))}

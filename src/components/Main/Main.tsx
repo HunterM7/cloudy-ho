@@ -2,7 +2,7 @@ import { FC } from 'react'
 import cn from 'classnames'
 
 // Components 'n UI
-import { CurrentWeatherCard, ForecastCard, HighlightsCard } from 'ui'
+import { CurrentWeatherCard, ForecastCard, HighlightsCard, Footer } from 'ui'
 import { HourlyForecast } from 'components'
 
 // Styles
@@ -57,6 +57,8 @@ export const Main: FC = () => {
             <HourlyForecast />
           </section>
         </div>
+
+        <Footer />
       </article>
     </main>
   )

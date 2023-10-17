@@ -1,0 +1,50 @@
+//? === Footer ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+
+// .fade-in .footer { display: flex;}
+
+.footer {
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	grid-area: footer;
+	gap: 12px 24px;
+
+	color: $on-surface-variant;
+
+	@media (min-width: $bp-md) {
+		flex-direction: row;
+	}
+}
+
+.copyright {
+	@include body-3;
+
+	&__link {
+	}
+}
+
+.poweredBy {
+	@include body-3;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+
+	&__link {
+	}
+
+	&__logo {
+		width: 150px;
+		height: 30px;
+
+		object-fit: contain;
+		object-position: center;
+	}
+}

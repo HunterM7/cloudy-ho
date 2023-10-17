@@ -1,6 +1,7 @@
 export * from './Badge/Badge'
 export * from './Button/Button'
 export * from './Logo/Logo'
+export * from './Footer/Footer'
 
 // Cards
 export * from './InfoCard/InfoCard'

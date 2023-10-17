@@ -19,6 +19,7 @@
 
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas: 'leftSection' ' rightSection' 'footer';
 	gap: 20px;
 
 	overflow-y: auto; // For Firefox
@@ -26,6 +27,8 @@
 
 	@media (min-width: $bp-md) {
 		grid-template-columns: 280px 1fr;
+		grid-template-areas: 'leftSection rightSection' 'footer footer';
+		gap: 28px;
 	}
 
 	@media (min-width: $bp-xl) {
