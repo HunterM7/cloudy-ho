@@ -35,6 +35,10 @@
 	width: 100%;
 	margin: 0 auto;
 	padding: 16px;
+
+	@media (min-width: $bp-md) {
+		padding: 24px;
+	}
 }
 
 // Card
@@ -48,12 +52,20 @@
 	padding: 16px;
 
 	border-radius: $radius-16;
+
+	@media (min-width: $bp-md) {
+		padding: 20px;
+	}
 }
 
 @mixin card-lg {
 	padding: 20px;
 
 	border-radius: $radius-28;
+
+	@media (min-width: $bp-md) {
+		padding: 24px;
+	}
 }
 
 @mixin card-xl {
@@ -77,6 +89,8 @@
 }
 
 @mixin title-1 {
+	$title-1: 2.4rem;
+
 	font-size: $title-1;
 }
 

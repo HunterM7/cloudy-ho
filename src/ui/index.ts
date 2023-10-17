@@ -2,6 +2,8 @@ export * from './Badge/Badge'
 export * from './Button/Button'
 export * from './Logo/Logo'
 export * from './Footer/Footer'
+export * from './Loader/Loader'
+export * from './ErrorSection/ErrorSection'
 
 // Cards
 export * from './InfoCard/InfoCard'

@@ -1,0 +1,33 @@
+//? === Loader ===
+
+@import 'styles/_vars';
+@import 'styles/_mixins';
+@import 'styles/_animations';
+
+.loader {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+
+	// display: grid;
+	place-items: center;
+
+	display: none;
+
+	background-color: $background;
+
+	&::before {
+		content: '';
+		width: 48px;
+		height: 48px;
+
+		border: 4px solid $on-background;
+		border-block-start-color: transparent;
+		border-radius: $radius-circle;
+
+		animation: loading 700ms linear infinite;
+	}
+}

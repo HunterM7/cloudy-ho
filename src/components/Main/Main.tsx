@@ -2,7 +2,14 @@ import { FC } from 'react'
 import cn from 'classnames'
 
 // Components 'n UI
-import { CurrentWeatherCard, ForecastCard, HighlightsCard, Footer } from 'ui'
+import {
+  CurrentWeatherCard,
+  ForecastCard,
+  HighlightsCard,
+  Footer,
+  Loader,
+  ErrorSection,
+} from 'ui'
 import { HourlyForecast } from 'components'
 
 // Styles
@@ -59,6 +66,10 @@ export const Main: FC = () => {
         </div>
 
         <Footer />
+
+        <Loader />
+
+        <ErrorSection />
       </article>
     </main>
   )
