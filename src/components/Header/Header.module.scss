@@ -4,6 +4,11 @@
 @import 'styles/_mixins';
 
 .header {
+	@media (min-width: $bp-xl) {
+		position: relative;
+		height: 120px;
+		z-index: 4;
+	}
 }
 
 .container {
@@ -12,6 +17,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (min-width: $bp-xl) {
+		padding-block: 0;
+		height: 100%;
+	}
 }
 
 .actions {

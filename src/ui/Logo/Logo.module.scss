@@ -1,5 +1,11 @@
 //? === Logo ===
 
+@import 'styles/_vars';
+
 .logo {
 	width: 150px;
+
+	@media (min-width: $bp-xl) {
+		width: 200px;
+	}
 }

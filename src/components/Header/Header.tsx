@@ -17,7 +17,7 @@ import styles from './Header.module.scss'
 
 export const Header: FC = () => {
   const navigate = useNavigate()
-  const { sm } = useMediaQueries()
+  const { sm, xl } = useMediaQueries()
 
   function handleCurrentLocationClick() {
     navigate('current-location')
@@ -33,13 +33,15 @@ export const Header: FC = () => {
         <SearchBar />
 
         <div className={styles.actions}>
-          <Button
-            hasState
-            aria-label="open search"
-            data-search-toggler
-            StartIcon={SearchRoundedIcon}
-            onClick={handleCurrentLocationClick}
-          />
+          {!xl && (
+            <Button
+              hasState
+              aria-label="open search"
+              data-search-toggler
+              StartIcon={SearchRoundedIcon}
+              onClick={handleCurrentLocationClick}
+            />
+          )}
 
           <Button
             // disabled

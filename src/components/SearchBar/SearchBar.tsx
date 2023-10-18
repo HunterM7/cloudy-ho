@@ -17,7 +17,7 @@ export const SearchBar: FC = () => {
     <div
       className={cn(
         styles.search,
-        // styles.active,
+        styles.active,
         //
       )}
       data-search-view

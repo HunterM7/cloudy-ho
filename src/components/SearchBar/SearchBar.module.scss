@@ -33,6 +33,20 @@
 	@media (min-width: $bp-md) {
 		clip-path: circle(3% at calc(100% - 273px) 6%);
 	}
+
+	@media (min-width: $bp-xl) {
+		&,
+		&.active {
+			all: unset;
+
+			display: block;
+
+			position: relative;
+			width: 500px;
+
+			animation: none;
+		}
+	}
 }
 
 .wrapper {
@@ -62,6 +76,10 @@
 	&:has(.searching)::before {
 		display: block;
 	}
+
+	@media (min-width: $bp-xl) {
+		border-block-end: none;
+	}
 }
 
 .input {
@@ -76,6 +94,14 @@
 
 	&::-webkit-search-cancel-button {
 		display: none;
+	}
+
+	@media (min-width: $bp-xl) {
+		background-color: $surface;
+
+		height: 56px;
+
+		border-radius: $radius-28;
 	}
 }
 
@@ -122,5 +148,9 @@
 		position: absolute;
 		inset: 0;
 		box-shadow: none;
+	}
+
+	@media (min-width: $bp-xl) {
+		background-color: $surface;
 	}
 }

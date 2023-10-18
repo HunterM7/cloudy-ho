@@ -39,6 +39,10 @@
 	@media (min-width: $bp-md) {
 		padding: 24px;
 	}
+
+	@media (min-width: $bp-xl) {
+		padding: 40px;
+	}
 }
 
 // Card
@@ -56,6 +60,10 @@
 	@media (min-width: $bp-md) {
 		padding: 20px;
 	}
+
+	@media (min-width: $bp-xl) {
+		padding: 24px;
+	}
 }
 
 @mixin card-lg {
@@ -65,6 +73,10 @@
 
 	@media (min-width: $bp-md) {
 		padding: 24px;
+	}
+
+	@media (min-width: $bp-xl) {
+		padding: 36px;
 	}
 }
 
