@@ -11,6 +11,12 @@
 	overflow-x: auto;
 	margin-inline: -16px;
 
+	@media (min-width: $bp-md) {
+		margin-inline: 0 -24px;
+		border-bottom-left-radius: $radius-16;
+		border-top-left-radius: $radius-16;
+	}
+
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -23,6 +29,15 @@
 		&::after {
 			content: '';
 			min-width: 4px;
+		}
+
+		@media (min-width: $bp-md) {
+			&::before {
+				display: none;
+			}
+			&::after {
+				min-width: 12px;
+			}
 		}
 	}
 }

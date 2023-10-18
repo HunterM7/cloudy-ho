@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import cn from 'classnames'
 import {
   SearchRounded as SearchRoundedIcon,
   ArrowBackRounded as ArrowBackRoundedIcon,
   FmdGoodOutlined as FmdGoodOutlinedIcon,
 } from '@mui/icons-material'
+import cn from 'classnames'
 
 // Components 'n UI
 import { Button } from 'ui'

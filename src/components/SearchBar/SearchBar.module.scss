@@ -29,6 +29,10 @@
 
 		clip-path: circle(130% at 73% 5%);
 	}
+
+	@media (min-width: $bp-md) {
+		clip-path: circle(3% at calc(100% - 273px) 6%);
+	}
 }
 
 .wrapper {

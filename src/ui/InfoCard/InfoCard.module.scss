@@ -51,16 +51,8 @@
 }
 
 .value {
-	@include m-title-1;
+	@include title-1;
 	color: $on-surface-variant-2;
 
 	grid-area: value;
-
-	@media (min-width: $bp-md) {
-		@include body-1;
-	}
-
-	@media (min-width: $bp-xl) {
-		@include title-1;
-	}
 }
