@@ -160,13 +160,13 @@
 }
 
 .list {
-	padding: 8px 16px;
+	padding-block: 8px 16px;
 
 	&__item {
 		position: relative;
 
 		height: 56px;
-		padding: 16px 24px;
+		padding-inline: 16px 24px;
 
 		display: flex;
 		justify-content: flex-start;
