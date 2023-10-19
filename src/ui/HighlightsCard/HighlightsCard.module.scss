@@ -30,6 +30,10 @@
 		gap: 20px;
 	}
 
+	@media (min-width: $bp-xl) {
+		grid-template-rows: 200px 200px 150px 150px;
+	}
+
 	@media (min-width: $bp-xxl) {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-areas:

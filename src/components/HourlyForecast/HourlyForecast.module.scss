@@ -39,5 +39,9 @@
 				min-width: 12px;
 			}
 		}
+
+		@media (min-width: $bp-xl) {
+			gap: 16px;
+		}
 	}
 }

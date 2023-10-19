@@ -17,7 +17,7 @@ export const SearchBar: FC = () => {
     <div
       className={cn(
         styles.search,
-        styles.active,
+        // styles.active,
         //
       )}
       data-search-view
@@ -36,7 +36,10 @@ export const SearchBar: FC = () => {
           data-search-field
         />
 
-        <SearchRoundedIcon sx={{ fontSize: '2.4rem' }} />
+        <SearchRoundedIcon
+          className={styles.searchIcon}
+          sx={{ fontSize: '2.4rem' }}
+        />
 
         <Button
           hasState
@@ -48,7 +51,7 @@ export const SearchBar: FC = () => {
         />
       </div>
 
-      <div className={styles.result} data-search-result>
+      <div className={cn(styles.result, styles.active)} data-search-result>
         <ul className={styles.list} data-search-list>
           <li className={styles.list__item}>
             <FmdGoodOutlinedIcon

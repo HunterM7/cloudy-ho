@@ -10,4 +10,10 @@
 
 .table {
 	width: 100%;
+
+	&__row {
+		&:not(:last-child) {
+			// padding-bottom: 12px;
+		}
+	}
 }

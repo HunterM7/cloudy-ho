@@ -31,8 +31,6 @@ export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
         <img
           src={WeatherConditions[condition].image.day}
           alt="Overcast icon"
-          width="64"
-          height="64"
           className={styles.weather__icon}
         />
       </div>

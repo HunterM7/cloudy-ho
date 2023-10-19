@@ -24,7 +24,15 @@
 	}
 
 	&__icon {
+		width: 64px;
+		height: 64px;
+
 		margin-inline: auto;
+
+		@media (min-width: $bp-xl) {
+			width: 80px;
+			height: 80px;
+		}
 	}
 }
 

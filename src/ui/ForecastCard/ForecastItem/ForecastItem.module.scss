@@ -26,6 +26,10 @@
 	@include title-2;
 
 	margin-block-end: 0;
+
+	@media (min-width: $bp-xl) {
+		font-size: 2.2rem;
+	}
 }
 
 .date {

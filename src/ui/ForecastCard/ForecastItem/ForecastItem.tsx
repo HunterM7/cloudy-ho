@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
+import cn from 'classnames'
 
 // Utils
 import { WeatherConditions } from 'utils'
@@ -6,7 +7,8 @@ import { WeatherConditions } from 'utils'
 // Styles
 import styles from './ForecastItem.module.scss'
 
-export interface IForecastItemProps {
+export interface IForecastItemProps
+  extends HTMLAttributes<HTMLTableRowElement> {
   temperature: number
   condition: keyof typeof WeatherConditions
 }
@@ -14,9 +16,10 @@ export interface IForecastItemProps {
 export const ForecastItem: FC<IForecastItemProps> = ({
   condition,
   temperature,
+  className,
 }) => {
   return (
-    <tr className={styles.row}>
+    <tr className={cn(styles.row, className)}>
       <td>
         <div className={styles.condition}>
           <img
@@ -27,7 +30,7 @@ export const ForecastItem: FC<IForecastItemProps> = ({
 
           <div className={styles.condition__info}>
             <p className={styles.temperature}>
-              {temperature}&deg;<sup>c</sup>
+              {temperature}°<sup>c</sup>
             </p>
           </div>
         </div>
