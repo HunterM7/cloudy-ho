@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import {
   SearchRounded as SearchRoundedIcon,
   ArrowBackRounded as ArrowBackRoundedIcon,
@@ -13,6 +13,12 @@ import { Button } from 'ui'
 import styles from './SearchBar.module.scss'
 
 export const SearchBar: FC = () => {
+  const [state, setState] = useState('')
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setState(event.target.value)
+  }
+
   return (
     <div
       className={cn(
@@ -26,6 +32,8 @@ export const SearchBar: FC = () => {
         <input
           type="search"
           name="search"
+          value={state}
+          onChange={handleInputChange}
           placeholder="Search city..."
           autoComplete="off"
           className={cn(
@@ -33,7 +41,7 @@ export const SearchBar: FC = () => {
             // styles.searching,
             //
           )}
-          data-search-field
+          // data-search-field
         />
 
         <SearchRoundedIcon
