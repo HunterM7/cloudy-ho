@@ -36,7 +36,7 @@ If you are developing a production application, we recommend updating the config
 
 2.  Чтобы склонировать проект пишем в консоль:
 
-        git clone https://github.com/HunterM7/wheater-app.git .
+        git clone https://github.com/HunterM7/cloudy-ho.git .
 
 3.  После клонирования проекта, необходимо установить все зависимости.
 
