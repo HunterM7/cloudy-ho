@@ -6,6 +6,9 @@ import {
 } from '@mui/icons-material'
 import cn from 'classnames'
 
+// Types 'n utils
+import { getUrl } from 'utils'
+
 // Zustand
 import { useSearch } from 'store'
 
@@ -14,16 +17,30 @@ import { Button } from 'ui'
 
 // Styles
 import styles from './SearchBar.module.scss'
+import { Link } from 'react-router-dom'
 
 export const SearchBar: FC = () => {
   // Zustand
-  const { searchQuery, changeSearchQuery, isOpen, toggle } = useSearch()
+  const {
+    searchStatus,
+    searchQuery,
+    changeSearchQuery,
+    isOpen,
+    toggle,
+    data,
+    getData,
+  } = useSearch()
 
   // Handlers
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const newQuery = event.target.value
+    const url = getUrl.geo(newQuery)
 
     changeSearchQuery(newQuery)
+
+    if (newQuery) {
+      getData(url)
+    }
   }
 
   function handleSearchItemClick() {
@@ -45,8 +62,7 @@ export const SearchBar: FC = () => {
           autoComplete="off"
           className={cn(
             styles.input,
-            // styles.searching,
-            //
+            searchStatus === 'pending' && styles.searching,
           )}
           // data-search-field
         />
@@ -68,7 +84,7 @@ export const SearchBar: FC = () => {
 
       <div className={cn(styles.result, styles.active)} data-search-result>
         <ul className={styles.list} data-search-list>
-          {[...new Array(5)].map((_item, index) => (
+          {data?.map((item, index) => (
             <li
               key={index}
               className={styles.list__item}
@@ -80,16 +96,19 @@ export const SearchBar: FC = () => {
               />
 
               <div>
-                <p className={styles.list__title}>London</p>
+                <p className={styles.list__title}>{item.name}</p>
 
-                <p className={styles.list__subtitle}>State of London, GB</p>
+                <p className={styles.list__subtitle}>
+                  {`${item.state || ''} ${item.country}`}
+                </p>
               </div>
 
-              <a
-                href="#"
+              <Link
+                to={`/weather?lat=${item.lat}&lon=${item.lon}`}
+                aria-label={`${item.name} weather`}
                 className={`${styles.list__link}`}
                 data-search-toggler
-              ></a>
+              ></Link>
             </li>
           ))}
         </ul>

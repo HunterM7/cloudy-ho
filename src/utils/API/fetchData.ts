@@ -10,14 +10,13 @@ import {
 } from './constants'
 
 /**
- * Fetch
+ * Fetch data
  * @param {string} URL API url
  */
-
-export function fetchData(URL: string) {
+export async function fetchData<T>(URL: string) {
   const { VITE_WEATHER_API_KEY: API_KEY } = import.meta.env
 
-  return axios.get(`${URL}&appid=${API_KEY}`).then((res) => res.data)
+  return await axios.get<T>(`${URL}&appid=${API_KEY}`).then((res) => res.data)
 }
 
 export const getUrl = {
