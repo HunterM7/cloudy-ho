@@ -13,26 +13,32 @@ import { Button } from 'ui'
 import styles from './SearchBar.module.scss'
 
 export const SearchBar: FC = () => {
-  const [state, setState] = useState('')
+  const [search, setSearch] = useState({
+    query: '',
+    isOpen: true,
+  })
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setState(event.target.value)
+    setSearch((prev) => ({ ...prev, query: event.target.value }))
+  }
+
+  function toogleSearch() {
+    setSearch((prev) => ({
+      ...prev,
+      isOpen: !prev.isOpen,
+    }))
   }
 
   return (
     <div
-      className={cn(
-        styles.search,
-        // styles.active,
-        //
-      )}
+      className={cn(styles.search, search.isOpen && styles.active)}
       data-search-view
     >
       <div className={cn(styles.wrapper)}>
         <input
           type="search"
           name="search"
-          value={state}
+          value={search.query}
           onChange={handleInputChange}
           placeholder="Search city..."
           autoComplete="off"
@@ -55,7 +61,7 @@ export const SearchBar: FC = () => {
           data-search-toggler
           StartIcon={ArrowBackRoundedIcon}
           className={styles.leadingIcon}
-          onClick={() => console.log('arrow click')}
+          onClick={toogleSearch}
         />
       </div>
 
