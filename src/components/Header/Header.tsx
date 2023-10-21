@@ -5,6 +5,9 @@ import {
   SearchRounded as SearchRoundedIcon,
 } from '@mui/icons-material'
 
+// Zustand
+import { useSearch } from 'store'
+
 // Types 'n utils
 import { useMediaQueries } from 'hooks'
 
@@ -18,6 +21,9 @@ import styles from './Header.module.scss'
 export const Header: FC = () => {
   const navigate = useNavigate()
   const { sm, xl } = useMediaQueries()
+
+  // Zustand
+  const { toggle } = useSearch()
 
   function handleCurrentLocationClick() {
     navigate('current-location')
@@ -39,7 +45,7 @@ export const Header: FC = () => {
               aria-label="open search"
               data-search-toggler
               StartIcon={SearchRoundedIcon}
-              onClick={handleCurrentLocationClick}
+              onClick={toggle}
             />
           )}
 
