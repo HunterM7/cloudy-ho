@@ -16,11 +16,11 @@ export const debounce = <F extends (...args: any[]) => any>(
       timeout = null
     }
 
-    return new Promise((res) => {
-      timeout = setTimeout(() => {
-        res(callback(...args))
-      }, delay)
-    })
+    return Promise.resolve(
+      (timeout = setTimeout(() => {
+        callback(...args)
+      }, delay)),
+    )
   }
 
   return debounced as (...args: Parameters<F>) => ReturnType<F>
