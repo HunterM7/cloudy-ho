@@ -20,16 +20,16 @@ export async function fetchData<T>(URL: string) {
 }
 
 export const getUrl = {
-  currentWeather(lat: string, lon: string) {
+  currentWeather(lat: number, lon: number) {
     return `${WEATHER_API_URL}lat=${lat}&lon=${lon}&units=metric`
   },
-  forecast(lat: string, lon: string) {
+  forecast(lat: number, lon: number) {
     return `${FORECAST_API_URL}lat=${lat}&lon=${lon}&units=metric`
   },
-  airPollution(lat: string, lon: string) {
+  airPollution(lat: number, lon: number) {
     return `${AIR_POLLUTION_API_URL}lat=${lat}&lon=${lon}&units=metric`
   },
-  reverseGeo(lat: string, lon: string) {
+  reverseGeo(lat: number, lon: number) {
     return `${REVERSE_GEO_API_URL}lat=${lat}&lon=${lon}&limit=5`
   },
   /**

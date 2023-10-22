@@ -1,29 +1,17 @@
 import { create } from 'zustand'
 
 // Types 'n utils
-import { TCountriesList } from 'types'
+import { TCountryData, TPromiseStatus } from 'types'
 import { fetchData } from 'utils'
-
-export type TSearchStatus = 'pending' | 'fullfilled' | 'rejected'
-
-export interface TDataType {
-  lat: number
-  lon: number
-  name: string
-  state: string
-  country: string
-  local_names: TCountriesList
-}
 
 export interface ISearchStore {
   searchQuery: string
-  searchStatus?: TSearchStatus
+  searchStatus?: TPromiseStatus
   isOpen: boolean
-  data: TDataType[] | null
+  data: TCountryData[] | null
 
   // Search status
   changeSearchQuery: (newQuery: string) => void
-  setSearchStatus: (searchStatus: TSearchStatus) => void
 
   // Search view
   openSearch: () => void
@@ -43,9 +31,6 @@ export const useSearch = create<ISearchStore>((set) => ({
   // Search status
   changeSearchQuery(newQuery) {
     set(() => ({ searchQuery: newQuery }))
-  },
-  setSearchStatus(searchStatus: TSearchStatus) {
-    set({ searchStatus })
   },
 
   // Search view
@@ -69,7 +54,7 @@ export const useSearch = create<ISearchStore>((set) => ({
 
     fetchData(url)
       .then((response) => {
-        const data = response as TDataType[]
+        const data = response as TCountryData[]
 
         set({ searchStatus: 'fullfilled', data })
       })

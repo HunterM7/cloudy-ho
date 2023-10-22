@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import cn from 'classnames'
 
 // Components 'n UI
@@ -14,11 +14,21 @@ import { HourlyForecast } from 'components'
 
 // Styles
 import styles from './Main.module.scss'
+import { useWeather } from 'store'
+import { getUrl } from 'utils'
 
 export const Main: FC = () => {
+  const { getData } = useWeather()
+
+  useEffect(() => {
+    const url = getUrl.currentWeather(55.7504461, 37.6174943)
+
+    getData(url)
+  }, [getData])
+
   return (
     <main className={styles.main}>
-      <article className={styles.container}>
+      <article className={styles.container} data-container>
         <div className={styles.leftSection}>
           {/* Current weather */}
           <section

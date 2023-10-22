@@ -13,6 +13,8 @@ import { useMediaQueries } from 'hooks'
 
 // Components 'n UI
 import { Button, Logo } from 'ui'
+
+// Nested components
 import { SearchBar } from '../SearchBar/SearchBar'
 
 // Styles
