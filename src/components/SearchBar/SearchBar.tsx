@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import {
   SearchRounded as SearchRoundedIcon,
   ArrowBackRounded as ArrowBackRoundedIcon,
@@ -7,7 +8,8 @@ import {
 import cn from 'classnames'
 
 // Types 'n utils
-import { getUrl } from 'utils'
+import { debounce, getUrl } from 'utils'
+import { useKeyPress } from 'hooks'
 
 // Zustand
 import { useSearch } from 'store'
@@ -17,7 +19,6 @@ import { Button } from 'ui'
 
 // Styles
 import styles from './SearchBar.module.scss'
-import { Link } from 'react-router-dom'
 
 export const SearchBar: FC = () => {
   // Zustand
@@ -27,19 +28,25 @@ export const SearchBar: FC = () => {
     changeSearchQuery,
     isOpen,
     toggle,
+    closeSearch,
     data,
     getData,
   } = useSearch()
 
+  const debouncedGetData = useMemo(() => debounce(getData, 1000), [getData])
+
+  // Esc handler
+  useKeyPress('Escape', closeSearch)
+
   // Handlers
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const newQuery = event.target.value
-    const url = getUrl.geo(newQuery)
+    const url = newQuery ? getUrl.geo(newQuery) : null
 
     changeSearchQuery(newQuery)
 
-    if (newQuery) {
-      getData(url)
+    if (url) {
+      debouncedGetData(url)
     }
   }
 
@@ -48,10 +55,7 @@ export const SearchBar: FC = () => {
   }
 
   return (
-    <div
-      className={cn(styles.search, isOpen && styles.active)}
-      data-search-view
-    >
+    <div className={cn(styles.search, isOpen && styles.active)}>
       <div className={cn(styles.wrapper)}>
         <input
           type="search"
@@ -64,7 +68,6 @@ export const SearchBar: FC = () => {
             styles.input,
             searchStatus === 'pending' && styles.searching,
           )}
-          // data-search-field
         />
 
         <SearchRoundedIcon
@@ -73,16 +76,15 @@ export const SearchBar: FC = () => {
         />
 
         <Button
-          hasState
+          // hasState
           aria-label="close search"
-          data-search-toggler
           StartIcon={ArrowBackRoundedIcon}
           className={styles.leadingIcon}
           onClick={toggle}
         />
       </div>
 
-      <div className={cn(styles.result, styles.active)} data-search-result>
+      <div className={cn(styles.result, styles.active)}>
         <ul className={styles.list} data-search-list>
           {data?.map((item, index) => (
             <li
@@ -107,7 +109,6 @@ export const SearchBar: FC = () => {
                 to={`/weather?lat=${item.lat}&lon=${item.lon}`}
                 aria-label={`${item.name} weather`}
                 className={`${styles.list__link}`}
-                data-search-toggler
               ></Link>
             </li>
           ))}

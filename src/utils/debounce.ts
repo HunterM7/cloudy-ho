@@ -1,4 +1,3 @@
-import { fetchData } from './API'
 /**
  * Debounce function
  * @param {Function} callback Any function you want to call
@@ -26,6 +25,3 @@ export const debounce = <F extends (...args: any[]) => any>(
 
   return debounced as (...args: Parameters<F>) => ReturnType<F>
 }
-
-//! Исправить delay на 300 - 500
-export const debouncedFetchData = debounce(fetchData, 1000)

@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 
 // Types 'n utils
-import { debouncedFetchData } from 'utils'
 import { TCountriesList } from 'types'
+import { fetchData } from 'utils'
 
 export type TSearchStatus = 'pending' | 'fullfilled' | 'rejected'
 
@@ -18,21 +18,29 @@ export interface TDataType {
 export interface ISearchStore {
   searchQuery: string
   searchStatus?: TSearchStatus
+  isOpen: boolean
+  data: TDataType[] | null
+
+  // Search status
   changeSearchQuery: (newQuery: string) => void
   setSearchStatus: (searchStatus: TSearchStatus) => void
 
-  isOpen: boolean
+  // Search view
+  openSearch: () => void
+  closeSearch: () => void
   toggle: () => void
 
-  data: TDataType[] | null
+  // Data
   getData: (url: string) => Promise<void>
 }
 
 export const useSearch = create<ISearchStore>((set) => ({
-  // Search status
   searchQuery: '',
   searchStatus: undefined,
+  isOpen: false,
+  data: null,
 
+  // Search status
   changeSearchQuery(newQuery) {
     set(() => ({ searchQuery: newQuery }))
   },
@@ -41,8 +49,12 @@ export const useSearch = create<ISearchStore>((set) => ({
   },
 
   // Search view
-  isOpen: false,
-
+  openSearch() {
+    set({ isOpen: true })
+  },
+  closeSearch() {
+    set({ isOpen: false })
+  },
   toggle() {
     set((state) => {
       if (state.isOpen) return { isOpen: false, searchQuery: '', data: null }
@@ -52,16 +64,14 @@ export const useSearch = create<ISearchStore>((set) => ({
   },
 
   // Data
-  data: null,
-
   getData: async (url: string) => {
     set({ searchStatus: 'pending' })
 
-    debouncedFetchData(url)
-      .then((res) => {
-        const response = res as TDataType[]
+    fetchData(url)
+      .then((response) => {
+        const data = response as TDataType[]
 
-        set({ searchStatus: 'fullfilled', data: response })
+        set({ searchStatus: 'fullfilled', data })
       })
       .catch(() => set({ searchStatus: 'rejected' }))
   },
