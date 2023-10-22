@@ -32,8 +32,6 @@ export const useWeather = create<IWeatherStore>((set) => ({
       .then((response) => {
         const data = response as ICurrentWeatherResponse
 
-        console.log('Response: ', data.main.humidity)
-
         set({
           status: 'fullfilled',
           data,

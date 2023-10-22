@@ -54,6 +54,11 @@ export const SearchBar: FC = () => {
     toggle()
   }
 
+  function onClickLink(lat: number, lon: number) {
+    localStorage.setItem('lat', lat.toString())
+    localStorage.setItem('lon', lon.toString())
+  }
+
   return (
     <div className={cn(styles.search, isOpen && styles.active)}>
       <div className={cn(styles.wrapper)}>
@@ -98,7 +103,9 @@ export const SearchBar: FC = () => {
               />
 
               <div>
-                <p className={styles.list__title}>{item.name}</p>
+                <p className={styles.list__title}>
+                  {item.local_names?.ru || item.name}
+                </p>
 
                 <p className={styles.list__subtitle}>
                   {`${item.state || ''} ${item.country}`}
@@ -106,7 +113,11 @@ export const SearchBar: FC = () => {
               </div>
 
               <Link
-                to={`/weather?lat=${item.lat}&lon=${item.lon}`}
+                to={{
+                  pathname: '/weather',
+                  search: `?lat=${item.lat}&lon=${item.lon}`,
+                }}
+                onClick={() => onClickLink(item.lat, item.lon)}
                 aria-label={`${item.name} weather`}
                 className={`${styles.list__link}`}
               ></Link>

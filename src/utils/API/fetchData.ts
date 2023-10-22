@@ -21,16 +21,16 @@ export async function fetchData<T>(URL: string) {
 
 export const getUrl = {
   currentWeather(lat: number, lon: number) {
-    return `${WEATHER_API_URL}lat=${lat}&lon=${lon}&units=metric`
+    return `${WEATHER_API_URL}lat=${lat}&lon=${lon}&units=metric&lang=ru`
   },
   forecast(lat: number, lon: number) {
-    return `${FORECAST_API_URL}lat=${lat}&lon=${lon}&units=metric`
+    return `${FORECAST_API_URL}lat=${lat}&lon=${lon}&units=metric&lang=ru`
   },
   airPollution(lat: number, lon: number) {
-    return `${AIR_POLLUTION_API_URL}lat=${lat}&lon=${lon}&units=metric`
+    return `${AIR_POLLUTION_API_URL}lat=${lat}&lon=${lon}&units=metric&lang=ru`
   },
   reverseGeo(lat: number, lon: number) {
-    return `${REVERSE_GEO_API_URL}lat=${lat}&lon=${lon}&limit=5`
+    return `${REVERSE_GEO_API_URL}lat=${lat}&lon=${lon}&limit=5&lang=ru`
   },
   /**
    * Method that returns something
@@ -38,6 +38,6 @@ export const getUrl = {
    * @returns Combined URL
    */
   geo(query: string) {
-    return `${GEO_API_URL}q=${query}&limit=5`
+    return `${GEO_API_URL}q=${query}&limit=5&lang=ru`
   },
 }

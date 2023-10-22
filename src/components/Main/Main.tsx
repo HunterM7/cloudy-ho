@@ -1,6 +1,13 @@
 import { FC, useEffect } from 'react'
 import cn from 'classnames'
 
+// Zustand
+import { useWeather } from 'store'
+
+// Types 'n utils
+import { useCoords } from 'hooks'
+import { getUrl } from 'utils'
+
 // Components 'n UI
 import {
   CurrentWeatherCard,
@@ -14,21 +21,28 @@ import { HourlyForecast } from 'components'
 
 // Styles
 import styles from './Main.module.scss'
-import { useWeather } from 'store'
-import { getUrl } from 'utils'
 
 export const Main: FC = () => {
-  const { getData } = useWeather()
+  const { lat, lon } = useCoords()
+
+  const { status, getData } = useWeather()
+
+  const isPending = status === 'pending'
 
   useEffect(() => {
-    const url = getUrl.currentWeather(55.7504461, 37.6174943)
+    const url = getUrl.currentWeather(lat, lon)
 
     getData(url)
-  }, [getData])
+  }, [getData, lat, lon])
 
   return (
     <main className={styles.main}>
-      <article className={styles.container} data-container>
+      <article
+        className={styles.container}
+        style={{
+          ...(isPending && { overflow: 'hidden' }),
+        }}
+      >
         <div className={styles.leftSection}>
           {/* Current weather */}
           <section
@@ -77,10 +91,11 @@ export const Main: FC = () => {
 
         <Footer />
 
-        <Loader />
-
         <ErrorSection />
       </article>
+
+      {/* Loading section */}
+      {isPending && <Loader />}
     </main>
   )
 }

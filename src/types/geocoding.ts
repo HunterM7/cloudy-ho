@@ -10,5 +10,5 @@ export interface TCountryData {
   name: string
   state: string
   country: string
-  local_names: TCountriesList & { feature_name: string }
+  local_names: Partial<TCountriesList> & { feature_name: string }
 }
