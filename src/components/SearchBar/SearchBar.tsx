@@ -90,7 +90,7 @@ export const SearchBar: FC = () => {
       </div>
 
       <div className={cn(styles.result, styles.active)}>
-        <ul className={styles.list} data-search-list>
+        <ul className={styles.list}>
           {data?.map((item, index) => (
             <li
               key={index}
