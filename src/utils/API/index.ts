@@ -1,2 +1,2 @@
-export * from './fetchData'
 export * from './constants'
+export * from './fetchData'

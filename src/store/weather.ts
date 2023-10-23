@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 // Types 'n utils
 import { TPromiseStatus, ICurrentWeatherResponse } from 'types'
-import { fetchData, getWeatherInfo } from 'utils'
+import { fetchData, formalizeWeatherInfo } from 'utils'
 
 // Other
 import { ICurrentWeatherCardProps } from 'ui'
@@ -39,7 +39,7 @@ export const useWeather = create<IWeatherStore>((set) => ({
       .then((response) => {
         const data = response as ICurrentWeatherResponse
 
-        const formalizedData = getWeatherInfo(data)
+        const formalizedData = formalizeWeatherInfo(data)
 
         set({
           status: 'fullfilled',

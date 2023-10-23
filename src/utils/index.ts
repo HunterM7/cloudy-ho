@@ -1,8 +1,6 @@
 export * from './API'
+export * from './date'
+export * from './other'
 export * from './store'
 
 export * from './constants'
-export * from './debounce'
-export * from './getDateFormUnix'
-export * from './getIcon'
-export * from './prepareDate'

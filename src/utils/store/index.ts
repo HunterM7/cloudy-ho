@@ -1,2 +1,2 @@
 export * from './getCurrentWeather'
-export * from './getWeatherInfo'
+export * from './formalizeWeatherInfo'
