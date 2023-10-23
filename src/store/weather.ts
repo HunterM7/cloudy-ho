@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 
 // Types 'n utils
-import { TPromiseStatus } from 'types'
-import { ICurrentWeatherResponse, fetchData } from 'utils'
+import { TPromiseStatus, ICurrentWeatherResponse } from 'types'
+import { fetchData } from 'utils'
 
 export interface IWeatherStore {
   status?: TPromiseStatus
