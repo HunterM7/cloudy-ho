@@ -1,12 +1,16 @@
+// Types 'n utils
+import { TWeatherConditionCodes } from 'types'
+
+// Assets
 import {
   Icon01d,
   Icon01n,
   Icon02d,
   Icon02n,
-  Icon03d,
-  Icon03n,
-  Icon04d,
-  Icon04n,
+  // Icon03d,
+  // Icon03n,
+  // Icon04d,
+  // Icon04n,
   Icon09d,
   Icon09n,
   Icon10d,
@@ -15,122 +19,148 @@ import {
   Icon11n,
   Icon13d,
   Icon13n,
+  Icon50d,
+  Icon50n,
 } from 'assets/images'
 
-export const WeatherConditions = {
-  clear: {
-    title: 'ясно',
+type IWeatherConditions = Record<
+  TWeatherConditionCodes,
+  {
+    title: string
     image: {
-      day: Icon01d,
-      night: Icon01n,
-    },
-  },
-  partlyCloudy: {
-    title: 'малооблачно',
-    image: {
-      day: Icon02d,
-      night: Icon02n,
-    },
-  },
-  cloudy: {
-    title: 'облачно с прояснениями',
-    image: {
-      day: Icon03d,
-      night: Icon03n,
-    },
-  },
-  overcast: {
-    title: 'пасмурно',
-    image: {
-      day: Icon04d,
-      night: Icon04n,
-    },
-  },
-  lightRain: {
-    title: 'небольшой дождь',
-    image: {
-      day: Icon09d,
-      night: Icon09n,
-    },
-  },
-  rain: {
-    title: 'дождь',
-    image: {
-      day: Icon10d,
-      night: Icon10n,
-    },
-  },
-  // heavyRain: {
-  //   title: 'сильный дождь',
-  //   image: {
-  //     day: Icon11d,
-  //     night: Icon11n,
-  //   },
-  // },
-  thunderstorm: {
-    title: 'гроза',
+      day: string
+      night: string
+    }
+  }
+>
+
+export const WeatherConditions: IWeatherConditions = {
+  // Group - Thunderstorm
+  Thunderstorm: {
+    title: 'Гроза',
     image: {
       day: Icon11d,
       night: Icon11n,
     },
   },
-  // showers: {
-  //   title: 'ливень',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
-  // wetSnow: {
-  //   title: 'дождь со снегом',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
-  // lightSnow: {
-  //   title: 'небольшой снег',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
-  snow: {
-    title: 'снег',
+
+  // Group - Drizzle
+  Drizzle: {
+    title: 'Небольшой дождь',
+    image: {
+      day: Icon09d,
+      night: Icon09n,
+    },
+  },
+
+  // Group - Rain
+  Rain: {
+    title: 'Дождь',
+    image: {
+      day: Icon10d,
+      night: Icon10n,
+    },
+  },
+
+  // Group - Snow
+  Snow: {
+    title: 'Снег',
     image: {
       day: Icon13d,
       night: Icon13n,
     },
   },
-  // snowShowers: {
-  //   title: 'снегопад',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
-  // hail: {
-  //   title: 'град',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
 
-  // thunderstormWithRain: {
-  //   title: 'дождь с грозой',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
-  // thunderstormWithHail: {
-  //   title: 'гроза с градом',
-  //   image: {
-  //     day: Icon01d,
-  //     night: Icon01n,
-  //   },
-  // },
+  // Group - Atmosphere
+  Mist: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Smoke: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Haze: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Dust: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Fog: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Sand: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Ash: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Squall: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  Tornado: {
+    title: 'ясно',
+    image: {
+      day: Icon50d,
+      night: Icon50n,
+    },
+  },
+
+  // Group - Clear
+  Clear: {
+    title: 'Ясно',
+    image: {
+      day: Icon01d,
+      night: Icon01n,
+    },
+  },
+
+  // Group - Clouds
+  Clouds: {
+    title: 'Облачно',
+    image: {
+      day: Icon02d,
+      night: Icon02n,
+    },
+  },
 }
 
 export enum BadgeTypeEnum {

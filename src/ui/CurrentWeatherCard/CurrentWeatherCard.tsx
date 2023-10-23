@@ -5,37 +5,37 @@ import {
 } from '@mui/icons-material'
 
 // Types 'n utils
-import { WeatherConditions } from 'utils'
+import { TWeatherIcon, getIcon } from 'utils'
 
 // Styles
 import styles from './CurrentWeatherCard.module.scss'
 
 export interface ICurrentWeatherCardProps {
   temperature: number
-  condition: keyof typeof WeatherConditions
+  description: string
+  iconName: TWeatherIcon
 }
 
 export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
   temperature,
-  condition,
+  description,
+  iconName,
 }) => {
+  const icon = getIcon(iconName)
+
   return (
     <div className={styles.card}>
-      <h2 className={styles.title}>Now</h2>
+      <h2 className={styles.title}>Сейчас</h2>
 
       <div className={styles.weather}>
         <p className={styles.weather__heading}>
           {temperature}&deg;<sup>c</sup>
         </p>
 
-        <img
-          src={WeatherConditions[condition].image.day}
-          alt="Overcast icon"
-          className={styles.weather__icon}
-        />
+        <img src={icon} alt="Overcast icon" className={styles.weather__icon} />
       </div>
 
-      <p className={styles.overcast}>Overcast clouds</p>
+      <p className={styles.overcast}>{description}</p>
 
       <ul className={styles.meta}>
         <li className={styles.meta__item}>

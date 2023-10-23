@@ -1,4 +1,5 @@
 @import './vars';
+@import './_animations';
 
 @mixin hasState {
 	position: relative;
@@ -156,4 +157,9 @@
 
 @mixin label-2 {
 	font-size: $label-2;
+}
+
+// Animations
+@mixin fade-in {
+	animation: fade-in-amimation 250ms ease forwards;
 }

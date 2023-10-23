@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   MyLocationRounded as MyLocationRoundedIcon,
   SearchRounded as SearchRoundedIcon,
@@ -21,12 +21,16 @@ import { SearchBar } from '../SearchBar/SearchBar'
 import styles from './Header.module.scss'
 
 export const Header: FC = () => {
+  const location = useLocation()
   const navigate = useNavigate()
   const { sm, xl } = useMediaQueries()
+
+  const isCurrentLocation = location.pathname.startsWith('/current-location')
 
   // Zustand
   const { toggle } = useSearch()
 
+  // Handlers
   function handleCurrentLocationClick() {
     navigate('current-location')
   }
@@ -52,7 +56,7 @@ export const Header: FC = () => {
           )}
 
           <Button
-            // disabled
+            disabled={isCurrentLocation}
             hasState
             primary
             data-current-location-btn

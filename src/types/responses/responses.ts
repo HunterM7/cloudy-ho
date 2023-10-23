@@ -68,7 +68,7 @@ interface ISystemInfo {
   // message: string // Internal parameter
 }
 
-interface IWeather {
+export interface IWeather {
   main: TWeatherConditionCodes // Group of weather parameters (Rain, Snow, Clouds etc.)
   description: string // Weather condition within the group.
   icon: string // Weather icon id
@@ -76,7 +76,7 @@ interface IWeather {
   // id: number // Weather condition id
 }
 
-type TWeatherConditionCodes =
+export type TWeatherConditionCodes =
   | 'Thunderstorm'
   | 'Drizzle'
   | 'Rain'

@@ -2,6 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import cn from 'classnames'
 
 // Utils
+import { TWeatherConditionCodes } from 'types'
 import { WeatherConditions } from 'utils'
 
 // Styles
@@ -10,7 +11,7 @@ import styles from './ForecastItem.module.scss'
 export interface IForecastItemProps
   extends HTMLAttributes<HTMLTableRowElement> {
   temperature: number
-  condition: keyof typeof WeatherConditions
+  condition: TWeatherConditionCodes
 }
 
 export const ForecastItem: FC<IForecastItemProps> = ({

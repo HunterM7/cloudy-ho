@@ -15,7 +15,7 @@ export const HourlyForecast: FC = () => {
             <WeatherCard
               type="temperature"
               time="03 PM"
-              condition="cloudy"
+              condition="Clouds"
               temperature={25}
             />
           </li>

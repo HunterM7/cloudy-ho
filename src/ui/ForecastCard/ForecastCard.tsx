@@ -9,23 +9,23 @@ import styles from './ForecastCard.module.scss'
 export const ForecastCard: FC = () => {
   const tableData: IForecastItemProps[] = [
     {
-      condition: 'clear',
+      condition: 'Clear',
       temperature: 23,
     },
     {
-      condition: 'lightRain',
+      condition: 'Rain',
       temperature: 18,
     },
     {
-      condition: 'partlyCloudy',
+      condition: 'Clouds',
       temperature: 21,
     },
     {
-      condition: 'snow',
+      condition: 'Snow',
       temperature: -12,
     },
     {
-      condition: 'thunderstorm',
+      condition: 'Thunderstorm',
       temperature: 12,
     },
   ]

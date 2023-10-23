@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 // Types 'n utils
+import { TWeatherConditionCodes } from 'types'
 import { WeatherConditions } from 'utils'
 
 // Assets
@@ -18,7 +19,7 @@ interface WindProps {
 interface TemperatureProps {
   type: 'temperature'
   temperature: number
-  condition: keyof typeof WeatherConditions
+  condition: TWeatherConditionCodes
 }
 
 interface WeatherProps {
