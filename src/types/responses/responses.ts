@@ -1,7 +1,10 @@
+import { TWeatherIcon } from 'utils'
+
 export interface ICurrentWeatherResponse {
   name: string // City name, etc. Moscow
   timezone: number // Shift in seconds from UTC, etc. 10800
   visibility: number // Visibility in meters. The maximum value of the visibility is 10 km
+  dt: 1697973910 // Time of data calculation, unix, UTC
 
   coord: ICoords
   main: IMain
@@ -15,7 +18,6 @@ export interface ICurrentWeatherResponse {
   // id: number // City ID
   // cod: number // Internal parameter
   // base: string // Internal parameter, etc. stations
-  // dt: 1697973910 // Time of data calculation, unix, UTC
 }
 
 interface IMain {
@@ -71,7 +73,7 @@ interface ISystemInfo {
 export interface IWeather {
   main: TWeatherConditionCodes // Group of weather parameters (Rain, Snow, Clouds etc.)
   description: string // Weather condition within the group.
-  icon: string // Weather icon id
+  icon: TWeatherIcon // Weather icon id
 
   // id: number // Weather condition id
 }

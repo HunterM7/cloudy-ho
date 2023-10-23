@@ -5,6 +5,7 @@
 
 .container {
 	@include container;
+	@include fade-in;
 
 	height: 100%;
 
@@ -15,8 +16,6 @@
 
 	overflow-y: auto; // For Firefox
 	overflow-y: overlay;
-
-	@include fade-in;
 
 	@media (min-width: $bp-md) {
 		grid-template-columns: 280px minmax(0, 1fr);
@@ -56,10 +55,6 @@
 		pointer-events: none;
 		z-index: 1;
 	}
-}
-
-.fadeIn {
-	@include fade-in;
 }
 
 .leftSection {

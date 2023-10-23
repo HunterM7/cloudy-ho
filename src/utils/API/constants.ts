@@ -10,29 +10,39 @@ export const AIR_POLLUTION_API_URL = `${API_URL}air_pollution?`
 export const GEO_API_URL = `${GEO_URL}direct?`
 export const REVERSE_GEO_API_URL = `${GEO_URL}reverse?`
 
-export const weekDayNames = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
+export interface IWeekDay {
+  fullName: string
+  shortName: string
+}
+
+export const weekDayNames: IWeekDay[] = [
+  { fullName: 'воскресенье', shortName: 'вс' },
+  { fullName: 'понедельник', shortName: 'пн' },
+  { fullName: 'вторник', shortName: 'вт' },
+  { fullName: 'среда', shortName: 'ср' },
+  { fullName: 'четверг', shortName: 'чт' },
+  { fullName: 'пятница', shortName: 'пт' },
+  { fullName: 'суббота', shortName: 'сб' },
 ]
 
-export const monthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
+export interface IMonth {
+  fullName: string
+  shortName: string
+}
+
+export const months: IMonth[] = [
+  { fullName: 'январь', shortName: 'янв' },
+  { fullName: 'февраль', shortName: 'февр' },
+  { fullName: 'март', shortName: 'март' },
+  { fullName: 'апрель', shortName: 'апр' },
+  { fullName: 'май', shortName: 'май' },
+  { fullName: 'июнь', shortName: 'июнь' },
+  { fullName: 'июль', shortName: 'июль' },
+  { fullName: 'август', shortName: 'авг' },
+  { fullName: 'сентябрь', shortName: 'сент' },
+  { fullName: 'октябрь', shortName: 'окт' },
+  { fullName: 'ноябрь', shortName: 'нояб' },
+  { fullName: 'декабрь', shortName: 'дек' },
 ]
 
 /**
@@ -42,10 +52,16 @@ export const monthNames = [
  */
 export function getDate(dateUnix: number, timezone: number): string {
   const date = new Date((dateUnix + timezone) * 1000)
-  const weekDayName = weekDayNames[date.getUTCDay()]
-  const monthName = monthNames[date.getUTCMonth()]
 
-  return `${weekDayName} ${date.getUTCDate()}, ${monthName}`
+  const weekDayName = weekDayNames[date.getUTCDay()].fullName
+  const formattedWeekDayName =
+    weekDayName.slice(0, 1).toUpperCase() + weekDayName.slice(1)
+
+  const monthName = months[date.getUTCMonth()].shortName
+  const formattedMonthName =
+    monthName.slice(0, 1).toUpperCase() + monthName.slice(1)
+
+  return `${formattedWeekDayName} ${date.getUTCDate()}, ${formattedMonthName}`
 }
 
 /**

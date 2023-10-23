@@ -39,7 +39,9 @@
 .overcast {
 	@include body-3;
 
-	text-transform: capitalize;
+	&::first-letter {
+		text-transform: uppercase;
+	}
 }
 
 .meta {

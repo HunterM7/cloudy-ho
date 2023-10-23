@@ -14,14 +14,21 @@ export interface ICurrentWeatherCardProps {
   temperature: number
   description: string
   iconName: TWeatherIcon
+  country: string
+  city: string
+  date: string
 }
 
 export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
   temperature,
   description,
   iconName,
+  country,
+  city,
+  date,
 }) => {
   const icon = getIcon(iconName)
+  const formattedTemperature = +temperature.toFixed()
 
   return (
     <div className={styles.card}>
@@ -29,7 +36,7 @@ export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
 
       <div className={styles.weather}>
         <p className={styles.weather__heading}>
-          {temperature}&deg;<sup>c</sup>
+          {formattedTemperature}&deg;<sup>c</sup>
         </p>
 
         <img src={icon} alt="Overcast icon" className={styles.weather__icon} />
@@ -41,13 +48,15 @@ export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
         <li className={styles.meta__item}>
           <CalendarTodayOutlinedIcon sx={{ fontSize: '2.2rem' }} />
 
-          <p className={styles.meta__text}>Thursday 16, Feb</p>
+          <p className={styles.meta__text}>{date}</p>
         </li>
 
         <li className={styles.meta__item}>
           <FmdGoodOutlinedIcon sx={{ fontSize: '2.4rem' }} />
 
-          <p className={styles.meta__text}>London, GB</p>
+          <p className={styles.meta__text}>
+            {city}, {country}
+          </p>
         </li>
       </ul>
     </div>

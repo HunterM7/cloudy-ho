@@ -17,7 +17,7 @@ import styles from './App.module.scss'
 export const App: FC = () => {
   const { lat, lon } = useCoords()
 
-  const { status, getData } = useWeather()
+  const { status, data, getData } = useWeather()
 
   const isPending = status === 'pending'
 
@@ -33,7 +33,7 @@ export const App: FC = () => {
 
       <main className={styles.main}>
         {isPending && <Loader />}
-        {!isPending && <Main />}
+        {data && <Main weather={data} />}
       </main>
     </>
   )

@@ -1,6 +1,10 @@
 import { FC } from 'react'
 import cn from 'classnames'
 
+// Types 'n utils
+import { ICurrentWeatherResponse } from 'types'
+import { getDate } from 'utils'
+
 // Components 'n UI
 import {
   CurrentWeatherCard,
@@ -8,15 +12,29 @@ import {
   HighlightsCard,
   Footer,
   ErrorSection,
+  ICurrentWeatherCardProps,
 } from 'ui'
 import { HourlyForecast } from 'components'
 
 // Styles
 import styles from './Main.module.scss'
 
-export const Main: FC = () => {
+export interface MainProps {
+  weather: ICurrentWeatherResponse
+}
+
+export const Main: FC<MainProps> = ({ weather }) => {
+  const CurrentWeatherInfo: ICurrentWeatherCardProps = {
+    temperature: weather.main.temp,
+    iconName: weather.weather[0].icon,
+    description: weather.weather[0].description,
+    date: getDate(weather.dt, weather.timezone),
+    city: weather.name,
+    country: weather.sys.country,
+  }
+
   return (
-    <article className={cn(styles.container, styles.fadeIn)}>
+    <article className={styles.container}>
       <div className={styles.leftSection}>
         {/* Current weather */}
         <section
@@ -24,11 +42,7 @@ export const Main: FC = () => {
           aria-label="current weather"
           data-current-weather
         >
-          <CurrentWeatherCard
-            temperature={25}
-            description="Пасмурно"
-            iconName="01d"
-          />
+          <CurrentWeatherCard {...CurrentWeatherInfo} />
         </section>
 
         {/* Forecast */}
@@ -38,7 +52,7 @@ export const Main: FC = () => {
           data-5-day-forecast
         >
           <h2 id="forecast-label" className={styles.forecast__heading}>
-            5 Days Forecast
+            Прогноз на 5 дней
           </h2>
 
           <ForecastCard />

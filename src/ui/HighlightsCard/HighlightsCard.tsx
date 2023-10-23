@@ -16,7 +16,7 @@ export const HighlightsCard: FC = () => {
   return (
     <div className={styles.card}>
       <h2 id="highlights-label" className={styles.heading}>
-        Todays Highlights
+        Подробная информация
       </h2>
 
       <div className={styles.list}>
