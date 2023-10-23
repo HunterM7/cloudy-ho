@@ -1,9 +1,8 @@
 import { FC } from 'react'
 import cn from 'classnames'
 
-// Types 'n utils
-import { ICurrentWeatherResponse } from 'types'
-import { getDate } from 'utils'
+// Zustand
+import { IWeatherData } from 'store'
 
 // Components 'n UI
 import {
@@ -12,7 +11,6 @@ import {
   HighlightsCard,
   Footer,
   ErrorSection,
-  ICurrentWeatherCardProps,
 } from 'ui'
 import { HourlyForecast } from 'components'
 
@@ -20,19 +18,10 @@ import { HourlyForecast } from 'components'
 import styles from './Main.module.scss'
 
 export interface MainProps {
-  weather: ICurrentWeatherResponse
+  weather: IWeatherData
 }
 
 export const Main: FC<MainProps> = ({ weather }) => {
-  const CurrentWeatherInfo: ICurrentWeatherCardProps = {
-    temperature: weather.main.temp,
-    iconName: weather.weather[0].icon,
-    description: weather.weather[0].description,
-    date: getDate(weather.dt, weather.timezone),
-    city: weather.name,
-    country: weather.sys.country,
-  }
-
   return (
     <article className={styles.container}>
       <div className={styles.leftSection}>
@@ -40,9 +29,8 @@ export const Main: FC<MainProps> = ({ weather }) => {
         <section
           className={cn(styles.currentWeather, styles.section)}
           aria-label="current weather"
-          data-current-weather
         >
-          <CurrentWeatherCard {...CurrentWeatherInfo} />
+          <CurrentWeatherCard {...weather.currentWeather} />
         </section>
 
         {/* Forecast */}

@@ -2,11 +2,18 @@ import { create } from 'zustand'
 
 // Types 'n utils
 import { TPromiseStatus, ICurrentWeatherResponse } from 'types'
-import { fetchData } from 'utils'
+import { fetchData, getWeatherInfo } from 'utils'
+
+// Other
+import { ICurrentWeatherCardProps } from 'ui'
+
+export interface IWeatherData {
+  currentWeather: ICurrentWeatherCardProps
+}
 
 export interface IWeatherStore {
   status?: TPromiseStatus
-  data: ICurrentWeatherResponse | null
+  data: IWeatherData | null
 
   // Search status
   setStatus: (status: TPromiseStatus) => void
@@ -32,9 +39,11 @@ export const useWeather = create<IWeatherStore>((set) => ({
       .then((response) => {
         const data = response as ICurrentWeatherResponse
 
+        const formalizedData = getWeatherInfo(data)
+
         set({
           status: 'fullfilled',
-          data,
+          data: formalizedData,
         })
       })
       .catch(() => set({ status: 'rejected' }))

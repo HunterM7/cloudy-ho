@@ -5,7 +5,7 @@ import {
 } from '@mui/icons-material'
 
 // Types 'n utils
-import { TWeatherIcon, getIcon } from 'utils'
+import { TWeatherIcon, getIcon, prepareDate } from 'utils'
 
 // Styles
 import styles from './CurrentWeatherCard.module.scss'
@@ -16,7 +16,7 @@ export interface ICurrentWeatherCardProps {
   iconName: TWeatherIcon
   country: string
   city: string
-  date: string
+  date: Date
 }
 
 export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
@@ -29,6 +29,8 @@ export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
 }) => {
   const icon = getIcon(iconName)
   const formattedTemperature = +temperature.toFixed()
+
+  const preparedDate = prepareDate(date)
 
   return (
     <div className={styles.card}>
@@ -48,7 +50,7 @@ export const CurrentWeatherCard: FC<ICurrentWeatherCardProps> = ({
         <li className={styles.meta__item}>
           <CalendarTodayOutlinedIcon sx={{ fontSize: '2.2rem' }} />
 
-          <p className={styles.meta__text}>{date}</p>
+          <p className={styles.meta__text}>{preparedDate}</p>
         </li>
 
         <li className={styles.meta__item}>
