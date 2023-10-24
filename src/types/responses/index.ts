@@ -1,1 +1,2 @@
-export * from './responses'
+export * from './currentWeatherResponse'
+export * from './reverseGeoResponse'

@@ -2,7 +2,6 @@ import { FC, useEffect } from 'react'
 
 // Types 'n utils
 import { useCoords } from 'hooks'
-import { getUrl } from 'utils'
 
 // Zustand
 import { useWeather } from 'store'
@@ -22,9 +21,7 @@ export const App: FC = () => {
   const isPending = status === 'pending'
 
   useEffect(() => {
-    const url = getUrl.currentWeather(lat, lon)
-
-    getData(url)
+    getData(lat, lon)
   }, [getData, lat, lon])
 
   return (
@@ -33,7 +30,7 @@ export const App: FC = () => {
 
       <main className={styles.main}>
         {isPending && <Loader />}
-        {data && <Main weather={data} />}
+        {data && !isPending && <Main weather={data} />}
       </main>
     </>
   )

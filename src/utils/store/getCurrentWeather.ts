@@ -1,16 +1,17 @@
-import { ICurrentWeatherResponse } from 'types'
+import { ICurrentWeatherResponse, TCountryData } from 'types'
 import { ICurrentWeatherCardProps } from 'ui'
 import { getDateFromUnix } from 'utils'
 
 export function getCurrentWeather(
-  data: ICurrentWeatherResponse,
+  data1: ICurrentWeatherResponse,
+  data2: TCountryData,
 ): ICurrentWeatherCardProps {
-  const temperature = data.main.temp
-  const iconName = data.weather[0].icon
-  const description = data.weather[0].description
-  const date = getDateFromUnix(data.dt, data.timezone)
-  const city = data.name
-  const country = data.sys.country
+  const temperature = data1.main.temp
+  const iconName = data1.weather[0].icon
+  const description = data1.weather[0].description
+  const date = getDateFromUnix(data1.dt, data1.timezone)
+  const city = data2.local_names.ru || data2.name
+  const country = data2.country
 
   return {
     temperature,

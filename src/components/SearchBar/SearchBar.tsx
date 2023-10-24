@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react'
+import { FC, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   SearchRounded as SearchRoundedIcon,
@@ -35,6 +35,13 @@ export const SearchBar: FC = () => {
 
   const debouncedGetData = useMemo(() => debounce(getData, 1000), [getData])
 
+  // Result
+  const [isResultOpen, setIsResultOpen] = useState(!!data)
+
+  useEffect(() => {
+    if (data) setIsResultOpen(true)
+  }, [data])
+
   // Esc handler
   useKeyPress('Escape', closeSearch)
 
@@ -57,6 +64,7 @@ export const SearchBar: FC = () => {
   function onClickLink(lat: number, lon: number) {
     localStorage.setItem('lat', lat.toString())
     localStorage.setItem('lon', lon.toString())
+    setIsResultOpen(false)
   }
 
   return (
@@ -89,7 +97,7 @@ export const SearchBar: FC = () => {
         />
       </div>
 
-      <div className={cn(styles.result, styles.active)}>
+      <div className={cn(styles.result, isResultOpen && styles.active)}>
         <ul className={styles.list}>
           {data?.map((item, index) => (
             <li

@@ -1,13 +1,14 @@
 import { IWeatherData } from 'store'
-import { ICurrentWeatherResponse } from 'types'
+import { ICurrentWeatherResponse, TCountryData } from 'types'
 
 // Utils
 import { getCurrentWeather } from '.'
 
 export function formalizeWeatherInfo(
-  data: ICurrentWeatherResponse,
+  data1: ICurrentWeatherResponse,
+  data2: TCountryData,
 ): IWeatherData {
-  const currentWeather = getCurrentWeather(data)
+  const currentWeather = getCurrentWeather(data1, data2)
 
   return { currentWeather }
 }
