@@ -4,7 +4,7 @@ export interface ICurrentWeatherResponse {
   name: string // City name, etc. Moscow
   timezone: number // Shift in seconds from UTC, etc. 10800
   visibility: number // Visibility in meters. The maximum value of the visibility is 10 km
-  dt: 1697973910 // Time of data calculation, unix, UTC
+  dt: number // Time of data calculation, unix, UTC
 
   coord: ICoords
   main: IMain
@@ -51,7 +51,7 @@ interface ISnow {
   '3h'?: number // Snow volume for the last 3 hours, mm.
 }
 
-interface ICoords {
+export interface ICoords {
   lon: number // Longitude of the location
   lat: number // Latitude of the location
 }
@@ -61,7 +61,7 @@ interface IClouds {
 }
 
 interface ISystemInfo {
-  country: 'RU' // Country code (GB, JP etc.)
+  country: string // Country code (GB, JP etc.)
   sunrise: number // Sunrise time, unix, UTC
   sunset: number // Sunset time, unix, UTC
 

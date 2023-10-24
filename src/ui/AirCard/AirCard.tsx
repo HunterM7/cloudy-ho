@@ -3,6 +3,7 @@ import { AirRounded as AirRoundedIcon } from '@mui/icons-material'
 import cn from 'classnames'
 
 // Components 'n UI
+import { TAirQualityIndex } from 'types'
 import { Badge } from 'ui'
 
 // Nested component
@@ -11,11 +12,23 @@ import { AirCardInfo, IAirCardInfoProps } from './AirCardInfo/AirCardInfo'
 // Styles
 import styles from './AirCard.module.scss'
 
-export interface AirCardProps extends HTMLAttributes<HTMLDivElement> {
-  //
+export interface IAirInfo {
+  pm2_5: number
+  so2: number
+  no2: number
+  o3: number
+  aqi: TAirQualityIndex
 }
 
-export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
+export interface AirCardProps extends HTMLAttributes<HTMLDivElement> {
+  airInfo: IAirInfo
+}
+
+export const AirCard: FC<AirCardProps> = ({ airInfo, className, ...rest }) => {
+  const { pm2_5, so2, no2, o3, aqi } = airInfo
+
+  console.log('AirInfoTest: ', airInfo)
+
   const airData: IAirCardInfoProps[] = [
     {
       heading: (
@@ -23,7 +36,7 @@ export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
           PM<sub>2.5</sub>
         </>
       ),
-      value: '23.3',
+      value: toFixed(pm2_5, 1),
     },
     {
       heading: (
@@ -31,7 +44,7 @@ export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
           SO<sub>2</sub>
         </>
       ),
-      value: 0.6,
+      value: toFixed(so2, 1),
     },
     {
       heading: (
@@ -39,7 +52,7 @@ export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
           NO<sub>2</sub>
         </>
       ),
-      value: 0.3,
+      value: toFixed(no2, 1),
     },
     {
       heading: (
@@ -47,16 +60,20 @@ export const AirCard: FC<AirCardProps> = ({ className, ...rest }) => {
           O<sub>3</sub>
         </>
       ),
-      value: 75.1,
+      value: toFixed(o3, 1),
     },
   ]
+
+  function toFixed(num: number, n: number) {
+    return num % 1 ? num.toFixed(n) : num
+  }
 
   return (
     <div className={cn(styles.card, className)} {...rest}>
       <h3 className={styles.heading}>Air Quality Index</h3>
 
       <Badge
-        type="good"
+        index={aqi}
         title="Air quality condition"
         className={styles.badge}
       />

@@ -53,7 +53,7 @@ export const Main: FC<MainProps> = ({ weather }) => {
           aria-labelledby="highlights-label"
           data-highlights
         >
-          <HighlightsCard />
+          <HighlightsCard airInfo={weather.airPollution} />
         </section>
 
         <section

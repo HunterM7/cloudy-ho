@@ -163,13 +163,13 @@ export const WeatherConditions: IWeatherConditions = {
   },
 }
 
-export enum BadgeTypeEnum {
-  good = 'Good',
-  fair = 'Fair',
-  moderate = 'Moderate',
-  poor = 'Poor',
-  veryPoor = 'Very Poor',
-}
+export const AirQualityList = [
+  { type: 'good', ru: 'Отличный', en: 'Good' },
+  { type: 'fair', ru: 'Хороший', en: 'Fair' },
+  { type: 'moderate', ru: 'Умеренный', en: 'Moderate' },
+  { type: 'poor', ru: 'Плохой', en: 'Poor' },
+  { type: 'veryPoor', ru: 'Очень плохой', en: 'Very Poor' },
+]
 
 export const countries = [
   'ab',

@@ -1,2 +1,3 @@
-export * from './getCurrentWeather'
 export * from './formalizeWeatherInfo'
+export * from './getAirPollution'
+export * from './getCurrentWeather'

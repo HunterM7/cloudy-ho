@@ -2,24 +2,32 @@ import { FC, HTMLAttributes } from 'react'
 import cn from 'classnames'
 
 // Types 'n Utils
-import { BadgeTypeEnum } from 'utils'
+import { TAirQualityIndex } from 'types'
+import { AirQualityList } from 'utils'
 
 // Styles
 import styles from './Badge.module.scss'
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  type: keyof typeof BadgeTypeEnum
+  index: TAirQualityIndex
 }
 
 export const Badge: FC<BadgeProps> = ({
-  type,
+  index,
   className,
   children,
   ...rest
 }) => {
   return (
-    <span className={cn(styles.badge, styles[type], className)} {...rest}>
-      {children ?? BadgeTypeEnum[type]}
+    <span
+      className={cn(
+        styles.badge,
+        styles[AirQualityList[index - 1].type],
+        className,
+      )}
+      {...rest}
+    >
+      {children ?? AirQualityList[index - 1].ru}
     </span>
   )
 }

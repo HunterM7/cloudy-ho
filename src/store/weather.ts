@@ -5,14 +5,16 @@ import {
   IReverseGeoResponse,
   TPromiseStatus,
   ICurrentWeatherResponse,
+  IAirPollutionResponse,
 } from 'types'
 import { fetchData, formalizeWeatherInfo, getUrl } from 'utils'
 
 // Other
-import { ICurrentWeatherCardProps } from 'ui'
+import { IAirInfo, ICurrentWeatherCardProps } from 'ui'
 
 export interface IWeatherData {
   currentWeather: ICurrentWeatherCardProps
+  airPollution: IAirInfo
 }
 
 export interface IWeatherStore {
@@ -41,22 +43,33 @@ export const useWeather = create<IWeatherStore>((set) => ({
 
     const currentWeatherURL = getUrl.currentWeather(lat, lon)
     const reverseGeoURL = getUrl.reverseGeo(lat, lon)
+    const airPollutionURL = getUrl.airPollution(lat, lon)
 
-    Promise.all([fetchData(currentWeatherURL), fetchData(reverseGeoURL)])
-      .then(([response1, response2]) => {
-        const data1 = response1 as ICurrentWeatherResponse
-        const data2 = (response2 as IReverseGeoResponse)[0]
+    Promise.all([
+      fetchData(currentWeatherURL),
+      fetchData(reverseGeoURL),
+      fetchData(airPollutionURL),
+    ])
+      .then(([res1, res2, res3]) => {
+        const data1 = res1 as ICurrentWeatherResponse
+        const data2 = (res2 as IReverseGeoResponse)[0]
+        const data3 = res3 as IAirPollutionResponse
 
-        const formalizedData = formalizeWeatherInfo(data1, data2)
+        const formalizedData = formalizeWeatherInfo(data1, data2, data3)
+
+        console.log('Data: ', formalizedData)
 
         set({
           status: 'fullfilled',
           data: formalizedData,
         })
 
-        console.log('Response2: ', data2)
+        // console.log('Response: ', data3)
       })
-      .catch(() => set({ status: 'rejected' }))
+      .catch((res) => {
+        console.log('Res: ', res)
+        set({ status: 'rejected' })
+      })
 
     // fetchData(currentWeatherURL)
     //   .then((response) => {

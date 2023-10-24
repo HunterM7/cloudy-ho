@@ -19,6 +19,7 @@ export const App: FC = () => {
   const { status, data, getData } = useWeather()
 
   const isPending = status === 'pending'
+  const isRejected = status === 'rejected'
 
   useEffect(() => {
     getData(lat, lon)
@@ -31,6 +32,7 @@ export const App: FC = () => {
       <main className={styles.main}>
         {isPending && <Loader />}
         {data && !isPending && <Main weather={data} />}
+        {isRejected && <h1>Ошибка...</h1>}
       </main>
     </>
   )
