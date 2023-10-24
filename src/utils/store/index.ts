@@ -1,3 +1,3 @@
 export * from './formalizeWeatherInfo'
-export * from './getAirPollution'
+export * from './getHighlights'
 export * from './getCurrentWeather'

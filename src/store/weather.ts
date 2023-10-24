@@ -10,11 +10,11 @@ import {
 import { fetchData, formalizeWeatherInfo, getUrl } from 'utils'
 
 // Other
-import { IAirInfo, ICurrentWeatherCardProps } from 'ui'
+import { HighlightsCardProps, ICurrentWeatherCardProps } from 'ui'
 
 export interface IWeatherData {
   currentWeather: ICurrentWeatherCardProps
-  airPollution: IAirInfo
+  highlights: HighlightsCardProps
 }
 
 export interface IWeatherStore {
@@ -56,8 +56,6 @@ export const useWeather = create<IWeatherStore>((set) => ({
         const data3 = res3 as IAirPollutionResponse
 
         const formalizedData = formalizeWeatherInfo(data1, data2, data3)
-
-        console.log('Data: ', formalizedData)
 
         set({
           status: 'fullfilled',

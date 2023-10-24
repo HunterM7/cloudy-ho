@@ -2,8 +2,11 @@ import { FC, HTMLAttributes } from 'react'
 import { AirRounded as AirRoundedIcon } from '@mui/icons-material'
 import cn from 'classnames'
 
-// Components 'n UI
+// Types 'n utils
 import { TAirQualityIndex } from 'types'
+import { toFixed } from 'utils'
+
+// Components 'n UI
 import { Badge } from 'ui'
 
 // Nested component
@@ -63,10 +66,6 @@ export const AirCard: FC<AirCardProps> = ({ airInfo, className, ...rest }) => {
       value: toFixed(o3, 1),
     },
   ]
-
-  function toFixed(num: number, n: number) {
-    return num % 1 ? num.toFixed(n) : num
-  }
 
   return (
     <div className={cn(styles.card, className)} {...rest}>

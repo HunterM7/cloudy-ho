@@ -6,7 +6,7 @@ import {
 } from 'types'
 
 // Utils
-import { getCurrentWeather, getAirPollution } from 'utils'
+import { getCurrentWeather, getHighlights } from 'utils'
 
 export function formalizeWeatherInfo(
   data1: ICurrentWeatherResponse,
@@ -14,7 +14,10 @@ export function formalizeWeatherInfo(
   data3: IAirPollutionResponse,
 ): IWeatherData {
   const currentWeather = getCurrentWeather(data1, data2)
-  const airPollution = getAirPollution(data3)
+  const highlights = getHighlights(data1, data2, data3)
 
-  return { currentWeather, airPollution }
+  return {
+    currentWeather,
+    highlights,
+  }
 }

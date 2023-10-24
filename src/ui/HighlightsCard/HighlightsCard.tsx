@@ -14,9 +14,19 @@ import styles from './HighlightsCard.module.scss'
 
 export interface HighlightsCardProps {
   airInfo: IAirInfo
+  humidity: number
+  pressure: number
+  visibility: number
+  feelsLike: number
 }
 
-export const HighlightsCard: FC<HighlightsCardProps> = ({ airInfo }) => {
+export const HighlightsCard: FC<HighlightsCardProps> = ({
+  airInfo,
+  humidity,
+  pressure,
+  visibility,
+  feelsLike,
+}) => {
   return (
     <div className={styles.card}>
       <h2 id="highlights-label" className={styles.heading}>
@@ -31,34 +41,34 @@ export const HighlightsCard: FC<HighlightsCardProps> = ({ airInfo }) => {
         {/* Humidity */}
         <InfoCard
           heading="Humidity"
-          value={35}
+          value={humidity}
           Icon={WaterDropRoundedIcon}
-          units={{ unit: '%' }}
+          units={{ unit: ' %' }}
           className={styles.humidity}
         />
 
         {/* Pressure */}
         <InfoCard
           heading="Pressure"
-          value={1019}
+          value={pressure}
           Icon={WaterRoundedIcon}
-          units={{ unit: 'hPa' }}
+          units={{ unit: ' hPa' }}
           className={styles.pressure}
         />
 
         {/* Visibility */}
         <InfoCard
           heading="Visibility"
-          value={10}
+          value={visibility}
           Icon={VisibilityOutlinedIcon}
-          units={{ unit: 'km' }}
+          units={{ unit: ' km' }}
           className={styles.visibility}
         />
 
         {/* Feels Like */}
         <InfoCard
           heading="Feels Like"
-          value={`${25}°`}
+          value={`${feelsLike}°`}
           Icon={ThermostatRoundedIcon}
           units={{ unit: 'c', position: 'up' }}
           className={styles.feelslike}
