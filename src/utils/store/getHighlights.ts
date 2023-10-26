@@ -9,7 +9,7 @@ import { getDateFromUnix } from 'utils'
 
 export function getHighlights(
   data1: ICurrentWeatherResponse,
-  data2: TCountryData,
+  _data2: TCountryData,
   data3: IAirPollutionResponse,
 ): HighlightsCardProps {
   // AQI
