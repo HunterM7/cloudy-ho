@@ -102,28 +102,43 @@ export function mps_to_kmh(mps: number): number {
 
 export const aqiText = {
   1: {
-    level: 'Good',
-    message:
-      'Air quality is considered satisfactory, and air pollution poses little or no risk',
+    type: 'good',
+    level: { ru: 'Отличный', en: 'Good' },
+    message: {
+      ru: 'Качество воздуха считается удовлетворительным, а загрязнение воздуха практически не представляет опасности.',
+      en: 'Air quality is considered satisfactory, and air pollution poses little or no risk.',
+    },
   },
   2: {
-    level: 'Fair',
-    message:
-      'Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.',
+    type: 'fair',
+    level: { ru: 'Хороший', en: 'Fair' },
+    message: {
+      ru: 'Качество воздуха является приемлемым, однако некоторые загрязняющие вещества могут представлять умеренную угрозу для здоровья очень небольшого числа людей, которые необычайно чувствительны к загрязнению воздуха.',
+      en: 'Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.',
+    },
   },
   3: {
-    level: 'Moderate',
-    message:
-      'Members of sensitive groups may experience health effects. The general public is not likely to be affected.',
+    type: 'moderate',
+    level: { ru: 'Умеренный', en: 'Moderate' },
+    message: {
+      ru: 'Члены чувствительных групп могут испытывать последствия для здоровья. Широкая общественность, скорее всего, не пострадает.',
+      en: 'Members of sensitive groups may experience health effects. The general public is not likely to be affected.',
+    },
   },
   4: {
-    level: 'Poor',
-    message:
-      'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects',
+    type: 'poor',
+    level: { ru: 'Плохой', en: 'Poor' },
+    message: {
+      ru: 'Каждый может начать испытывать последствия для здоровья. Члены чувствительных групп могут испытывать более серьезные последствия для здоровья.',
+      en: 'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects',
+    },
   },
   5: {
-    level: 'Very Poor',
-    message:
-      'Health warnings of emergency conditions. The entire population is more likely to be affected.',
+    type: 'veryPoor',
+    level: { ru: 'Очень плохой', en: 'Very poor' },
+    message: {
+      ru: 'Предупреждения о чрезвычайных ситуациях для здоровья. С большей вероятностью пострадает все население.',
+      en: 'Health warnings of emergency conditions. The entire population is more likely to be affected.',
+    },
   },
 }

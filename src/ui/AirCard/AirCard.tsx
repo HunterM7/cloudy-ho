@@ -69,11 +69,7 @@ export const AirCard: FC<AirCardProps> = ({ airInfo, className, ...rest }) => {
     <div className={cn(styles.card, className)} {...rest}>
       <h3 className={styles.heading}>Air Quality Index</h3>
 
-      <Badge
-        index={aqi}
-        title="Air quality condition"
-        className={styles.badge}
-      />
+      <Badge index={aqi} className={styles.badge} />
 
       <div className={styles.data}>
         <AirRoundedIcon className={styles.data__icon} />

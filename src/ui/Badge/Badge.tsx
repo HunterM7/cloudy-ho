@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 // Types 'n Utils
 import { TAirQualityIndex } from 'types'
-import { AirQualityList } from 'utils'
+import { aqiText } from 'utils'
 
 // Styles
 import styles from './Badge.module.scss'
@@ -20,14 +20,11 @@ export const Badge: FC<BadgeProps> = ({
 }) => {
   return (
     <span
-      className={cn(
-        styles.badge,
-        styles[AirQualityList[index - 1].type],
-        className,
-      )}
+      title={aqiText[index].message.ru}
+      className={cn(styles.badge, styles[aqiText[index].type], className)}
       {...rest}
     >
-      {children ?? AirQualityList[index - 1].ru}
+      {children ?? aqiText[index].level.ru}
     </span>
   )
 }
