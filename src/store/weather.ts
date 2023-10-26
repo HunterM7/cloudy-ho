@@ -6,15 +6,18 @@ import {
   TPromiseStatus,
   ICurrentWeatherResponse,
   IAirPollutionResponse,
+  IHourlyForecastrResponse,
 } from 'types'
 import { fetchData, formalizeWeatherInfo, getUrl } from 'utils'
 
 // Other
 import { HighlightsCardProps, ICurrentWeatherCardProps } from 'ui'
+import { IHourlyForecast } from 'components'
 
 export interface IWeatherData {
   currentWeather: ICurrentWeatherCardProps
   highlights: HighlightsCardProps
+  hourlyForecast: IHourlyForecast[]
 }
 
 export interface IWeatherStore {
@@ -44,18 +47,21 @@ export const useWeather = create<IWeatherStore>((set) => ({
     const currentWeatherURL = getUrl.currentWeather(lat, lon)
     const reverseGeoURL = getUrl.reverseGeo(lat, lon)
     const airPollutionURL = getUrl.airPollution(lat, lon)
+    const hourlyForecastURL = getUrl.forecast(lat, lon)
 
     Promise.all([
       fetchData(currentWeatherURL),
       fetchData(reverseGeoURL),
       fetchData(airPollutionURL),
+      fetchData(hourlyForecastURL),
     ])
-      .then(([res1, res2, res3]) => {
+      .then(([res1, res2, res3, res4]) => {
         const data1 = res1 as ICurrentWeatherResponse
         const data2 = (res2 as IReverseGeoResponse)[0]
         const data3 = res3 as IAirPollutionResponse
+        const data4 = res4 as IHourlyForecastrResponse
 
-        const formalizedData = formalizeWeatherInfo(data1, data2, data3)
+        const formalizedData = formalizeWeatherInfo(data1, data2, data3, data4)
 
         set({
           status: 'fullfilled',
@@ -68,20 +74,5 @@ export const useWeather = create<IWeatherStore>((set) => ({
         console.log('Res: ', res)
         set({ status: 'rejected' })
       })
-
-    // fetchData(currentWeatherURL)
-    //   .then((response) => {
-    //     const data = response as ICurrentWeatherResponse
-
-    //     const formalizedData = formalizeWeatherInfo(data)
-
-    //     set({
-    //       status: 'fullfilled',
-    //       data: formalizedData,
-    //     })
-    //   })
-    //   .catch(() => set({ status: 'rejected' }))
-
-    // fetchData(reverseGeoURL).then((res) => console.log('ReverseGeo: ', res))
   },
 }))

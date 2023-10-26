@@ -20,7 +20,7 @@ export interface ICurrentWeatherResponse {
   // base: string // Internal parameter, etc. stations
 }
 
-interface IMain {
+export interface IMain {
   // For temperature - Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit
   temp: number // Temperature.
   feels_like: number // Temperature. This temperature parameter accounts for the human perception of weather.

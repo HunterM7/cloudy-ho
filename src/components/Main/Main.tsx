@@ -65,7 +65,7 @@ export const Main: FC<MainProps> = ({ weather }) => {
             Today at
           </h2>
 
-          <HourlyForecast />
+          <HourlyForecast forecastList={weather.hourlyForecast} />
         </section>
       </div>
 

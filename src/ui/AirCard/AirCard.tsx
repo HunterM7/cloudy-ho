@@ -30,8 +30,6 @@ export interface AirCardProps extends HTMLAttributes<HTMLDivElement> {
 export const AirCard: FC<AirCardProps> = ({ airInfo, className, ...rest }) => {
   const { pm2_5, so2, no2, o3, aqi } = airInfo
 
-  console.log('AirInfoTest: ', airInfo)
-
   const airData: IAirCardInfoProps[] = [
     {
       heading: (

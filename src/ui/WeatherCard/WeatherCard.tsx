@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 // Types 'n utils
 import { TWeatherConditionCodes } from 'types'
-import { WeatherConditions } from 'utils'
+import { WeatherConditions, prepareHours } from 'utils'
 
 // Assets
 import { DirectionIcon } from 'assets/images'
@@ -13,7 +13,7 @@ import styles from './WeatherCard.module.scss'
 interface WindProps {
   type: 'wind'
   speed: number
-  direction: string
+  direction: number
 }
 
 interface TemperatureProps {
@@ -23,15 +23,17 @@ interface TemperatureProps {
 }
 
 interface WeatherProps {
-  time: string
+  time: Date
 }
 
 export type WeatherCardProps = WeatherProps & (WindProps | TemperatureProps)
 
 export const WeatherCard: FC<WeatherCardProps> = (props) => {
+  const preparedTime = prepareHours(props.time)
+
   return (
     <div className={styles.card}>
-      <p className={styles.time}>{props.time}</p>
+      <p className={styles.time}>{preparedTime}</p>
 
       <img
         src={
@@ -42,6 +44,11 @@ export const WeatherCard: FC<WeatherCardProps> = (props) => {
         alt="Overcast icon"
         loading="lazy"
         className={styles.icon}
+        style={{
+          ...(props.type === 'wind' && {
+            rotate: `${props.direction}deg`,
+          }),
+        }}
       />
 
       <p className={styles.info}>
@@ -50,7 +57,7 @@ export const WeatherCard: FC<WeatherCardProps> = (props) => {
             {props.temperature}°<sup>c</sup>
           </>
         )}
-        {props.type === 'wind' && <>{props.speed} km/h</>}
+        {props.type === 'wind' && <>{props.speed.toFixed()} м/с</>}
       </p>
     </div>
   )
