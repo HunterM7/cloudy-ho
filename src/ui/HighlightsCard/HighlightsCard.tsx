@@ -7,12 +7,13 @@ import {
 } from '@mui/icons-material'
 
 // Components 'n UI
-import { AirCard, RiseAndSetCard, InfoCard, IAirInfo } from 'ui'
+import { AirCard, RiseAndSetCard, InfoCard, IAirInfo, ISunInfo } from 'ui'
 
 // Styles
 import styles from './HighlightsCard.module.scss'
 
 export interface HighlightsCardProps {
+  sunInfo: ISunInfo
   airInfo: IAirInfo
   humidity: number
   pressure: number
@@ -22,6 +23,7 @@ export interface HighlightsCardProps {
 
 export const HighlightsCard: FC<HighlightsCardProps> = ({
   airInfo,
+  sunInfo,
   humidity,
   pressure,
   visibility,
@@ -36,7 +38,7 @@ export const HighlightsCard: FC<HighlightsCardProps> = ({
       <div className={styles.list}>
         <AirCard airInfo={airInfo} className={styles.aqi} />
 
-        <RiseAndSetCard className={styles.sun} />
+        <RiseAndSetCard sunInfo={sunInfo} className={styles.sun} />
 
         {/* Humidity */}
         <InfoCard

@@ -3,8 +3,9 @@ import {
   ICurrentWeatherResponse,
   TCountryData,
 } from 'types'
-import { HighlightsCardProps } from 'ui'
+import { HighlightsCardProps, ISunInfo } from 'ui'
 import { toFixed } from '../other/common'
+import { getDateFromUnix } from 'utils'
 
 export function getHighlights(
   data1: ICurrentWeatherResponse,
@@ -21,7 +22,18 @@ export function getHighlights(
 
   const airInfo = { pm2_5, so2, no2, o3, aqi }
 
-  // Data
+  // SunInfo
+  const {
+    timezone,
+    sys: { sunset, sunrise },
+  } = data1
+
+  const sunInfo: ISunInfo = {
+    sunrise: getDateFromUnix(sunrise, timezone),
+    sunset: getDateFromUnix(sunset, timezone),
+  }
+
+  // Other info
   const humidity = data1.main.humidity
   const pressure = data1.main.pressure
   const visibility = toFixed(data1.visibility / 1000)
@@ -29,6 +41,7 @@ export function getHighlights(
 
   return {
     airInfo,
+    sunInfo,
     humidity,
     pressure,
     visibility,
