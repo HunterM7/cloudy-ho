@@ -12,16 +12,14 @@ export function getHighlights(
   data3: IAirPollutionResponse,
 ): HighlightsCardProps {
   // AQI
-  const { pm2_5, so2, no2, o3 } = data3.list[0].components
-  const aqi = data3.list[0].main.aqi
+  const [
+    {
+      main: { aqi },
+      components: { pm2_5, so2, no2, o3 },
+    },
+  ] = data3.list
 
-  const airInfo = {
-    pm2_5,
-    so2,
-    no2,
-    o3,
-    aqi,
-  }
+  const airInfo = { pm2_5, so2, no2, o3, aqi }
 
   // Data
   const humidity = data1.main.humidity
