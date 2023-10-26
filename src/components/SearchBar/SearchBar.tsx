@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from 'react'
+import { FC, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   SearchRounded as SearchRoundedIcon,
@@ -45,6 +45,13 @@ export const SearchBar: FC = () => {
   // Esc handler
   useKeyPress('Escape', closeSearch)
 
+  // Focus on search
+  const searchRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    isOpen && searchRef.current?.focus()
+  }, [isOpen])
+
   // Handlers
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const newQuery = event.target.value
@@ -71,6 +78,8 @@ export const SearchBar: FC = () => {
     <div className={cn(styles.search, isOpen && styles.active)}>
       <div className={cn(styles.wrapper)}>
         <input
+          autoFocus
+          ref={searchRef}
           type="search"
           name="search"
           value={searchQuery}
