@@ -38,6 +38,7 @@
 	font-weight: $weight-semiBold;
 	color: $on-surface-variant;
 	text-align: right;
+	text-transform: capitalize;
 }
 
 .weekDay {
@@ -46,4 +47,5 @@
 	font-weight: $weight-semiBold;
 	color: $on-surface-variant;
 	text-align: right;
+	text-transform: capitalize;
 }

@@ -43,7 +43,7 @@ export const Main: FC<MainProps> = ({ weather }) => {
             Прогноз на 5 дней
           </h2>
 
-          <ForecastCard />
+          <ForecastCard fiveDayForecast={weather.fiveDayForecast} />
         </section>
       </div>
 

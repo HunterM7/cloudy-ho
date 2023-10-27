@@ -22,11 +22,6 @@ export function getHourlyForecast(
 
     if (index > 7 && currentDay !== forecastDay) break
 
-    console.group('Date')
-    console.log('Current day: ', currentDay)
-    console.log('Forecast day: ', forecastDay)
-    console.groupEnd()
-
     const condition = data.weather[0].main
     const temperature = data.main.temp
     const wind = {

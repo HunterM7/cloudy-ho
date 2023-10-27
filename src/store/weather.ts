@@ -13,11 +13,13 @@ import { fetchData, formalizeWeatherInfo, getUrl } from 'utils'
 // Other
 import { HighlightsCardProps, ICurrentWeatherCardProps } from 'ui'
 import { IHourlyForecast } from 'components'
+import { IFiveDayForecast } from 'ui/ForecastCard/ForecastItem/ForecastItem'
 
 export interface IWeatherData {
   currentWeather: ICurrentWeatherCardProps
   highlights: HighlightsCardProps
   hourlyForecast: IHourlyForecast[]
+  fiveDayForecast: IFiveDayForecast[]
 }
 
 export interface IWeatherStore {
