@@ -20,10 +20,10 @@ export interface IForecastItemProps
 }
 
 export const ForecastItem: FC<IForecastItemProps> = ({ info, className }) => {
-  const formattedDate = `${info.date.getDate()} ${
-    months[info.date.getMonth()].shortName
+  const formattedDate = `${info.date.getUTCDate()} ${
+    months[info.date.getUTCMonth()].shortName
   }`
-  const formattedWeekDay = weekDayNames[info.date.getDay()].fullName
+  const formattedWeekDay = weekDayNames[info.date.getUTCDay()].fullName
 
   return (
     <tr className={cn(styles.row, className)}>
