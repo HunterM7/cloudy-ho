@@ -22,7 +22,9 @@ export const App: FC = () => {
   const isRejected = status === 'rejected'
 
   useEffect(() => {
-    getData(lat, lon)
+    if (lat && lon) {
+      getData(lat, lon)
+    }
   }, [getData, lat, lon])
 
   return (

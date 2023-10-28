@@ -6,7 +6,7 @@ import {
 } from '@mui/icons-material'
 
 // Zustand
-import { useSearch } from 'store'
+import { useSearch, useWeather } from 'store'
 
 // Types 'n utils
 import { useMediaQueries } from 'hooks'
@@ -25,6 +25,8 @@ export const Header: FC = () => {
   const navigate = useNavigate()
   const { sm, xl } = useMediaQueries()
 
+  const { setStatus } = useWeather()
+
   const isCurrentLocation = location.pathname.startsWith('/current-location')
 
   // Zustand
@@ -32,6 +34,7 @@ export const Header: FC = () => {
 
   // Handlers
   function handleCurrentLocationClick() {
+    setStatus('pending')
     navigate('current-location')
   }
 

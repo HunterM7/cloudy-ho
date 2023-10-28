@@ -46,6 +46,9 @@ export const useWeather = create<IWeatherStore>((set) => ({
   getData: async (lat, lon) => {
     set({ status: 'pending' })
 
+    localStorage.setItem('lat', lat.toString())
+    localStorage.setItem('lon', lon.toString())
+
     const currentWeatherURL = getUrl.currentWeather(lat, lon)
     const reverseGeoURL = getUrl.reverseGeo(lat, lon)
     const airPollutionURL = getUrl.airPollution(lat, lon)

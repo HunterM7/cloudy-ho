@@ -1,38 +1,64 @@
-import { useSearchParams } from 'react-router-dom'
+import { useLayoutEffect, useState } from 'react'
+import { useLocation, useSearchParams } from 'react-router-dom'
 
-interface UseCoordsReturnType {
-  lat: number
-  lon: number
+interface ICoordsState {
+  lat: number | null
+  lon: number | null
 }
 
-export function useCoords(): UseCoordsReturnType {
+const initialCoordsState: ICoordsState = { lat: null, lon: null }
+const defaultCoordsValue: ICoordsState = { lat: 55.7504461, lon: 37.6174943 } // Moscow coordinates
+
+export function useCoords(): ICoordsState {
+  const [coords, setCoords] = useState<ICoordsState>(initialCoordsState)
+
   const [searchParams] = useSearchParams()
+  const location = useLocation()
 
-  let lat = null
-  let lon = null
+  useLayoutEffect(() => {
+    const isCurrentLocation = location.pathname === '/current-location'
 
-  // If there's query params
-  const paramsLat = searchParams.get('lat')
-  const paramsLon = searchParams.get('lon')
+    const paramsLat = searchParams.get('lat')
+    const paramsLon = searchParams.get('lon')
 
-  if (paramsLat && paramsLon) {
-    lat = +paramsLat
-    lon = +paramsLon
+    const storageLat = localStorage.getItem('lat')
+    const storageLon = localStorage.getItem('lon')
 
-    return { lat, lon }
-  }
+    if (isCurrentLocation) {
+      // If user set current location
+      console.log('Current location')
 
-  // If there's coords in LocalStorage
-  const storageLat = localStorage.getItem('lat')
-  const storageLon = localStorage.getItem('lon')
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+          setCoords({
+            lat: coords.latitude,
+            lon: coords.longitude,
+          })
+        },
+        (error) => {
+          console.log('Error: ', error)
+        },
+      )
+    } else if (paramsLat && paramsLon) {
+      // If there's query params
+      console.log('Params')
 
-  if (storageLat && storageLon) {
-    lat = +storageLat
-    lon = +storageLon
+      setCoords({
+        lat: +paramsLat,
+        lon: +paramsLon,
+      })
+    } else if (storageLat && storageLon) {
+      // If there's coords in LocalStorage
+      console.log('Storage')
 
-    return { lat, lon }
-  }
+      setCoords({
+        lat: +storageLat,
+        lon: +storageLon,
+      })
+    } else {
+      setCoords(defaultCoordsValue)
+    }
+  }, [location.pathname, searchParams])
 
-  // Default coords - Moscow
-  return { lat: 55.7504461, lon: 37.6174943 }
+  return coords
 }
