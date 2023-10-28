@@ -26,8 +26,6 @@ export function useCoords(): ICoordsState {
 
     if (isCurrentLocation) {
       // If user set current location
-      console.log('Current location')
-
       navigator.geolocation.getCurrentPosition(
         ({ coords }) => {
           setCoords({
@@ -41,16 +39,12 @@ export function useCoords(): ICoordsState {
       )
     } else if (paramsLat && paramsLon) {
       // If there's query params
-      console.log('Params')
-
       setCoords({
         lat: +paramsLat,
         lon: +paramsLon,
       })
     } else if (storageLat && storageLon) {
       // If there's coords in LocalStorage
-      console.log('Storage')
-
       setCoords({
         lat: +storageLat,
         lon: +storageLon,

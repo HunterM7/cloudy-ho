@@ -67,7 +67,7 @@ export const AirCard: FC<AirCardProps> = ({ airInfo, className, ...rest }) => {
 
   return (
     <div className={cn(styles.card, className)} {...rest}>
-      <h3 className={styles.heading}>Air Quality Index</h3>
+      <h3 className={styles.heading}>Индекс качества воздуха</h3>
 
       <Badge index={aqi} className={styles.badge} />
 

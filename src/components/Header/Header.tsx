@@ -66,7 +66,7 @@ export const Header: FC = () => {
             StartIcon={MyLocationRoundedIcon}
             onClick={handleCurrentLocationClick}
           >
-            {sm && 'Current location'}
+            {sm && 'Рядом со мной'}
           </Button>
         </div>
       </div>

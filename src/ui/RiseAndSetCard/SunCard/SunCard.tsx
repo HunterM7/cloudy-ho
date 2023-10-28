@@ -24,7 +24,10 @@ export const SunCard: FC<SunCardProps> = ({
       {type === 'sunrise' && <LightModeRoundedIcon className={styles.icon} />}
       {type === 'sunset' && <DarkModeRoundedIcon className={styles.icon} />}
 
-      <p className={styles.title}>{type}</p>
+      <p className={styles.title}>
+        {type === 'sunrise' && 'Рассвет'}
+        {type === 'sunset' && 'Закат'}
+      </p>
       <p className={styles.value}>{time}</p>
     </div>
   )

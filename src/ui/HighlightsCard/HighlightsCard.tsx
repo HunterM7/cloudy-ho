@@ -42,7 +42,7 @@ export const HighlightsCard: FC<HighlightsCardProps> = ({
 
         {/* Humidity */}
         <InfoCard
-          heading="Humidity"
+          heading="Влажность"
           value={humidity}
           Icon={WaterDropRoundedIcon}
           units={{ unit: ' %' }}
@@ -51,7 +51,7 @@ export const HighlightsCard: FC<HighlightsCardProps> = ({
 
         {/* Pressure */}
         <InfoCard
-          heading="Pressure"
+          heading="Давление"
           value={pressure}
           Icon={WaterRoundedIcon}
           units={{ unit: ' hPa' }}
@@ -60,7 +60,7 @@ export const HighlightsCard: FC<HighlightsCardProps> = ({
 
         {/* Visibility */}
         <InfoCard
-          heading="Visibility"
+          heading="Видимость"
           value={visibility}
           Icon={VisibilityOutlinedIcon}
           units={{ unit: ' km' }}
@@ -69,7 +69,7 @@ export const HighlightsCard: FC<HighlightsCardProps> = ({
 
         {/* Feels Like */}
         <InfoCard
-          heading="Feels Like"
+          heading="Ощущается как"
           value={`${feelsLike}°`}
           Icon={ThermostatRoundedIcon}
           units={{ unit: 'c', position: 'up' }}

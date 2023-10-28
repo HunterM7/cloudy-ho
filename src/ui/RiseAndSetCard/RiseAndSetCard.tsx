@@ -27,7 +27,7 @@ export const RiseAndSetCard: FC<RiseAndSetCardProps> = ({
 
   return (
     <div className={cn(styles.card, className)} {...rest}>
-      <h3 className={styles.heading}>Sunrise & Sunset</h3>
+      <h3 className={styles.heading}>Рассвет и Закат</h3>
 
       <SunCard type="sunrise" time={sunrise} />
       <SunCard type="sunset" time={sunset} />
