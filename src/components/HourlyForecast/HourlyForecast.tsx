@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 // Types 'n utils
 import { TWeatherConditionCodes } from 'types'
+import { TWeatherIcon } from 'utils'
 
 // Components 'n UI
 import { WeatherCard } from 'ui'
@@ -13,6 +14,7 @@ export interface IHourlyForecast {
   time: Date
   condition: TWeatherConditionCodes
   temperature: number
+  iconName: TWeatherIcon
   wind: {
     direction: number
     speed: number
@@ -34,6 +36,7 @@ export const HourlyForecast: FC<HourlyForecastProps> = ({ forecastList }) => {
               time={el.time}
               condition={el.condition}
               temperature={+el.temperature.toFixed()}
+              iconName={el.iconName}
             />
           </li>
         ))}

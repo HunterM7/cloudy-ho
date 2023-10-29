@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 // Utils
 import { TWeatherConditionCodes } from 'types'
-import { WeatherConditions, months, weekDayNames } from 'utils'
+import { TWeatherIcon, getIcon, months, weekDayNames } from 'utils'
 
 // Styles
 import styles from './ForecastItem.module.scss'
@@ -11,6 +11,7 @@ import styles from './ForecastItem.module.scss'
 export interface IFiveDayForecast {
   temperature: number
   condition: TWeatherConditionCodes
+  iconName: TWeatherIcon
   date: Date
 }
 
@@ -31,7 +32,7 @@ export const ForecastItem: FC<IForecastItemProps> = ({ info, className }) => {
         <div className={styles.condition}>
           <img
             className={styles.condition__icon}
-            src={WeatherConditions[info.condition].image.day}
+            src={getIcon(info.iconName)}
             alt="Overcast Clouds"
           />
 

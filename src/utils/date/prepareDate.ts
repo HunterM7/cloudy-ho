@@ -1,4 +1,4 @@
-import { months, weekDayNames } from '../API'
+import { months, weekDayNames } from 'utils'
 
 export function prepareDate(date: Date) {
   const weekDayName = weekDayNames[date.getUTCDay()].fullName

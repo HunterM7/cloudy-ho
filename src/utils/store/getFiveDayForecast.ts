@@ -4,7 +4,7 @@ import {
   IHourlyForecastrResponse,
   TWeatherConditionCodes,
 } from 'types'
-import { getDateFromUnix } from 'utils'
+import { TWeatherIcon, getDateFromUnix } from 'utils'
 
 // Components 'n UI
 import { IFiveDayForecast } from 'ui/ForecastCard/ForecastItem/ForecastItem'
@@ -30,13 +30,19 @@ export function getFiveDayForecast(
     return acc
   }, [])
 
-  const forecast: IFiveDayForecast[] = weatherByDays.map(({ forecast }) => {
+  const forecast = weatherByDays.map<IFiveDayForecast>(({ forecast }) => {
     const length = forecast.length
 
-    const condition: TWeatherConditionCodes =
-      length > 5
-        ? forecast[4].weather[0].main
-        : forecast[length - 1].weather[0].main
+    let iconName: TWeatherIcon
+    let condition: TWeatherConditionCodes
+
+    if (length > 5) {
+      iconName = forecast[4].weather[0].icon
+      condition = forecast[4].weather[0].main
+    } else {
+      iconName = forecast[length - 1].weather[0].icon
+      condition = forecast[length - 1].weather[0].main
+    }
 
     const temperature = +(
       forecast.reduce((acc, forecast) => (acc += forecast.main.temp), 0) /
@@ -49,6 +55,7 @@ export function getFiveDayForecast(
       condition,
       temperature,
       date,
+      iconName,
     }
   })
 

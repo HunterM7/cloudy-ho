@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 // Types 'n utils
 import { TWeatherConditionCodes } from 'types'
-import { WeatherConditions, prepareHours } from 'utils'
+import { TWeatherIcon, getIcon, prepareHours } from 'utils'
 
 // Assets
 import { DirectionIcon } from 'assets/images'
@@ -20,6 +20,7 @@ interface TemperatureProps {
   type: 'temperature'
   temperature: number
   condition: TWeatherConditionCodes
+  iconName: TWeatherIcon
 }
 
 interface WeatherProps {
@@ -37,9 +38,7 @@ export const WeatherCard: FC<WeatherCardProps> = (props) => {
 
       <img
         src={
-          props.type === 'temperature'
-            ? WeatherConditions[props.condition].image.day
-            : DirectionIcon
+          props.type === 'temperature' ? getIcon(props.iconName) : DirectionIcon
         }
         alt="Overcast icon"
         loading="lazy"
