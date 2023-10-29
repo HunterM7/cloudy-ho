@@ -1,8 +1,7 @@
 import { FC } from 'react'
 
 // Types 'n utils
-import { TWeatherConditionCodes } from 'types'
-import { TWeatherIcon } from 'utils'
+import { TWeatherConditionCodes, TWeatherIcon } from 'types'
 
 // Components 'n UI
 import { WeatherCard } from 'ui'

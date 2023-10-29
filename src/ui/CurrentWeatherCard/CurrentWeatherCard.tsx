@@ -5,7 +5,8 @@ import {
 } from '@mui/icons-material'
 
 // Types 'n utils
-import { TWeatherIcon, getIcon, prepareDate } from 'utils'
+import { TWeatherIcon } from 'types'
+import { getIcon, prepareDate } from 'utils'
 
 // Styles
 import styles from './CurrentWeatherCard.module.scss'

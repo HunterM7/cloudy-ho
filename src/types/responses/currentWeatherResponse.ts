@@ -1,4 +1,4 @@
-import { TWeatherIcon } from 'utils'
+import { TWeatherIcon } from 'types'
 
 export interface ICurrentWeatherResponse {
   name: string // City name, etc. Moscow

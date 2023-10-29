@@ -18,8 +18,9 @@ import {
   Icon50d,
   Icon50n,
 } from 'assets/images'
+import { TWeatherIcon } from 'types'
 
-const iconList = {
+export const iconList = {
   '01d': Icon01d,
   '01n': Icon01n,
   '02d': Icon02d,
@@ -39,8 +40,6 @@ const iconList = {
   '50d': Icon50d,
   '50n': Icon50n,
 }
-
-export type TWeatherIcon = keyof typeof iconList
 
 export function getIcon(iconName: TWeatherIcon) {
   const icon = iconList[iconName]

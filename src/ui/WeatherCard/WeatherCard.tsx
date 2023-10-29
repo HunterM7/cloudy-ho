@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
 // Types 'n utils
-import { TWeatherConditionCodes } from 'types'
-import { TWeatherIcon, getIcon, prepareHours } from 'utils'
+import { TWeatherIcon, TWeatherConditionCodes } from 'types'
+import { getIcon, prepareHours } from 'utils'
 
 // Assets
 import { DirectionIcon } from 'assets/images'

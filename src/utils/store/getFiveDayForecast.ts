@@ -1,10 +1,11 @@
 // Types 'n utils
 import {
+  TWeatherIcon,
   IForecastItem,
   IHourlyForecastrResponse,
   TWeatherConditionCodes,
 } from 'types'
-import { TWeatherIcon, getDateFromUnix } from 'utils'
+import { getDateFromUnix } from 'utils'
 
 // Components 'n UI
 import { IFiveDayForecast } from 'ui/ForecastCard/ForecastItem/ForecastItem'

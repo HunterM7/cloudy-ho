@@ -2,8 +2,8 @@ import { FC, HTMLAttributes } from 'react'
 import cn from 'classnames'
 
 // Utils
-import { TWeatherConditionCodes } from 'types'
-import { TWeatherIcon, getIcon, months, weekDayNames } from 'utils'
+import { TWeatherIcon, TWeatherConditionCodes } from 'types'
+import { getIcon, months, weekDayNames } from 'utils'
 
 // Styles
 import styles from './ForecastItem.module.scss'
