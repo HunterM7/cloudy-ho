@@ -13,8 +13,6 @@ export function getHourlyForecast(
     city: { timezone },
   } = data
 
-  console.log('Data: ', data)
-
   const hourlyForecast: IHourlyForecast[] = []
 
   for (const [index, data] of list.entries()) {
