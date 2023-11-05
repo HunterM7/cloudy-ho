@@ -1,6 +1,5 @@
 @import './_normalize';
 @import './animations';
-@import './fonts';
 @import './_vars';
 @import './mixins';
 
@@ -24,15 +23,18 @@ body {
 	height: 100%;
 }
 
+// Outline settings
 :focus-visible {
 	outline: 2px solid $white;
 	outline-offset: 2px;
 }
 
+// Selection settings
 ::selection {
 	background-color: $white-alpha-8;
 }
 
+// Scrollbar settings
 ::-webkit-scrollbar {
 	width: 6px;
 	height: 6px;
@@ -40,75 +42,5 @@ body {
 
 ::-webkit-scrollbar-thumb {
 	background-color: $white-alpha-8;
-	border-right: $radius-pill;
+	border-radius: $radius-pill;
 }
-
-.icon-btn {
-	background-color: $white-alpha-8;
-	width: 48px;
-	height: 48px;
-	display: grid;
-	place-items: center;
-	border-radius: $radius-circle;
-}
-
-.has-state {
-	position: relative;
-
-	&:hover {
-		box-shadow: $shadow-1;
-
-		&::before {
-			background-color: $white-alpha-4;
-		}
-	}
-
-	&:is(:focus, :focus-visible) {
-		box-shadow: none;
-
-		&::before {
-			background-color: $white-alpha-8;
-			animation: ripple 250ms ease forwards;
-		}
-	}
-
-	&::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		border-radius: inherit;
-		clip-path: circle(100% at 50% 50%);
-		transition: $transition-short;
-	}
-}
-
-// .btn-primary {
-// 	line-height: 48px;
-// 	color: $on-primary;
-
-// 	height: 48px;
-// 	max-width: max-content;
-// 	padding-inline: 16px;
-
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 16px;
-
-// 	border-radius: $radius-pill;
-// 	background-color: $primary;
-
-// 	& .span {
-// 		font-weight: $weight-semiBold;
-// 	}
-
-// 	&:disabled {
-// 		color: $on-surface-variant;
-
-// 		background-color: $outline;
-// 		cursor: not-allowed;
-
-// 		&::before {
-// 			display: none;
-// 		}
-// 	}
-// }

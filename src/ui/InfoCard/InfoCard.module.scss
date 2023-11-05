@@ -53,6 +53,7 @@
 .value {
 	@include title-1;
 	color: $on-surface-variant-2;
+	text-wrap: nowrap;
 
 	grid-area: value;
 }

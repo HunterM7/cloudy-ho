@@ -19,6 +19,7 @@ export function getHourlyForecast(
     const time = getDateFromUnix(data.dt, timezone)
     const currentDay = new Date().getUTCDate()
     const forecastDay = time.getUTCDate()
+    const iconName = data.weather[0].icon
 
     if (index > 7 && currentDay !== forecastDay) break
 
@@ -29,7 +30,7 @@ export function getHourlyForecast(
       speed: data.wind.speed,
     }
 
-    hourlyForecast.push({ time, condition, temperature, wind })
+    hourlyForecast.push({ time, condition, temperature, wind, iconName })
   }
 
   return hourlyForecast

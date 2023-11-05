@@ -1,168 +1,3 @@
-// Types 'n utils
-import { TWeatherConditionCodes } from 'types'
-
-// Assets
-import {
-  Icon01d,
-  Icon01n,
-  Icon02d,
-  Icon02n,
-  // Icon03d,
-  // Icon03n,
-  // Icon04d,
-  // Icon04n,
-  Icon09d,
-  Icon09n,
-  Icon10d,
-  Icon10n,
-  Icon11d,
-  Icon11n,
-  Icon13d,
-  Icon13n,
-  Icon50d,
-  Icon50n,
-} from 'assets/images'
-
-type IWeatherConditions = Record<
-  TWeatherConditionCodes,
-  {
-    title: string
-    image: {
-      day: string
-      night: string
-    }
-  }
->
-
-export const WeatherConditions: IWeatherConditions = {
-  // Group - Thunderstorm
-  Thunderstorm: {
-    title: 'Гроза',
-    image: {
-      day: Icon11d,
-      night: Icon11n,
-    },
-  },
-
-  // Group - Drizzle
-  Drizzle: {
-    title: 'Небольшой дождь',
-    image: {
-      day: Icon09d,
-      night: Icon09n,
-    },
-  },
-
-  // Group - Rain
-  Rain: {
-    title: 'Дождь',
-    image: {
-      day: Icon10d,
-      night: Icon10n,
-    },
-  },
-
-  // Group - Snow
-  Snow: {
-    title: 'Снег',
-    image: {
-      day: Icon13d,
-      night: Icon13n,
-    },
-  },
-
-  // Group - Atmosphere
-  Mist: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Smoke: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Haze: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Dust: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Fog: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Sand: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Ash: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Squall: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  Tornado: {
-    title: 'ясно',
-    image: {
-      day: Icon50d,
-      night: Icon50n,
-    },
-  },
-
-  // Group - Clear
-  Clear: {
-    title: 'Ясно',
-    image: {
-      day: Icon01d,
-      night: Icon01n,
-    },
-  },
-
-  // Group - Clouds
-  Clouds: {
-    title: 'Облачно',
-    image: {
-      day: Icon02d,
-      night: Icon02n,
-    },
-  },
-}
-
 export const countries = [
   'ab',
   'af',
@@ -301,3 +136,46 @@ export const countries = [
   'zh',
   'zu',
 ] as const
+
+export const aqiText = {
+  1: {
+    type: 'good',
+    level: { ru: 'Отличный', en: 'Good' },
+    message: {
+      ru: 'Качество воздуха считается удовлетворительным, а загрязнение воздуха практически не представляет опасности.',
+      en: 'Air quality is considered satisfactory, and air pollution poses little or no risk.',
+    },
+  },
+  2: {
+    type: 'fair',
+    level: { ru: 'Хороший', en: 'Fair' },
+    message: {
+      ru: 'Качество воздуха является приемлемым, однако некоторые загрязняющие вещества могут представлять умеренную угрозу для здоровья очень небольшого числа людей, которые необычайно чувствительны к загрязнению воздуха.',
+      en: 'Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.',
+    },
+  },
+  3: {
+    type: 'moderate',
+    level: { ru: 'Умеренный', en: 'Moderate' },
+    message: {
+      ru: 'Члены чувствительных групп могут испытывать последствия для здоровья. Широкая общественность, скорее всего, не пострадает.',
+      en: 'Members of sensitive groups may experience health effects. The general public is not likely to be affected.',
+    },
+  },
+  4: {
+    type: 'poor',
+    level: { ru: 'Плохой', en: 'Poor' },
+    message: {
+      ru: 'Каждый может начать испытывать последствия для здоровья. Члены чувствительных групп могут испытывать более серьезные последствия для здоровья.',
+      en: 'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects',
+    },
+  },
+  5: {
+    type: 'veryPoor',
+    level: { ru: 'Очень плохой', en: 'Very poor' },
+    message: {
+      ru: 'Предупреждения о чрезвычайных ситуациях для здоровья. С большей вероятностью пострадает все население.',
+      en: 'Health warnings of emergency conditions. The entire population is more likely to be affected.',
+    },
+  },
+}

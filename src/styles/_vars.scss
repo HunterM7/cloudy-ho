@@ -1,3 +1,21 @@
+/* Font family */
+$ff-nunito-sans: 'Nunito Sans', sans-serif;
+
+/* Font size */
+$heading: 5.6rem;
+$title-1: 2rem;
+$title-2: 1.8rem;
+$title-3: 1.6rem;
+$body-1: 2.2rem;
+$body-2: 2rem;
+$body-3: 1.6rem;
+$label-1: 1.4rem;
+$label-2: 1.2rem;
+
+/* Font weight */
+$weight-regular: 400;
+$weight-semiBold: 600;
+
 /* Colors */
 $primary: #b5a1e5;
 $on-primary: #100e17;
@@ -37,24 +55,6 @@ $gradient-2: linear-gradient(
 	hsl(260, 5%, 12%) 100%
 );
 
-/* Font family */
-$ff-nunito-sans: 'Nunito Sans', sans-serif;
-
-/* Font size */
-$heading: 5.6rem;
-$title-1: 2rem;
-$title-2: 1.8rem;
-$title-3: 1.6rem;
-$body-1: 2.2rem;
-$body-2: 2rem;
-$body-3: 1.6rem;
-$label-1: 1.4rem;
-$label-2: 1.2rem;
-
-/* Font weight */
-$weight-regular: 400;
-$weight-semiBold: 600;
-
 /* Shadows */
 $shadow-1: 0px 1px 3px hsla(0, 0%, 0%, 0.5);
 $shadow-2: 0px 3px 6px hsla(0, 0%, 0%, 0.4);
@@ -67,6 +67,8 @@ $radius-circle: 50%;
 
 /* Transitions */
 $transition-short: 100ms ease;
+$transition-medium: 250ms ease;
+$transition-long: 500ms ease;
 
 /* Breakpoints */
 // $bp-sm: 576px;

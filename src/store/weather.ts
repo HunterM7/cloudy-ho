@@ -72,11 +72,9 @@ export const useWeather = create<IWeatherStore>((set) => ({
           status: 'fullfilled',
           data: formalizedData,
         })
-
-        // console.log('Response: ', data3)
       })
-      .catch((res) => {
-        console.log('Res: ', res)
+      .catch((error) => {
+        console.log('Error: ', error)
         set({ status: 'rejected' })
       })
   },
