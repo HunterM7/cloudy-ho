@@ -21,7 +21,7 @@
 	visibility: hidden;
 
 	z-index: 4;
-	transition: clip-path 500ms ease;
+	transition: clip-path $transition-long;
 
 	&.active {
 		opacity: 1;

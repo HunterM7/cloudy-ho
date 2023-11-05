@@ -17,7 +17,7 @@
 
 		&::before {
 			background-color: $white-alpha-8;
-			animation: ripple 250ms ease forwards;
+			animation: ripple $transition-medium forwards;
 		}
 	}
 
